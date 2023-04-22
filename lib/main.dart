@@ -14,8 +14,13 @@ class MyApp extends StatelessWidget {
       routerConfig: router,
       title: 'Flutter Demo',
       theme: ThemeData(
-        canvasColor: Colors.white12,
-        primarySwatch: Colors.blue,
+        canvasColor: Colors.grey,
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            foregroundColor:
+                MaterialStateProperty.resolveWith((states) => Colors.black),
+          ),
+        ),
       ),
     );
   }

@@ -1,0 +1,81 @@
+import 'package:fine_movie/domain/model/movie.dart';
+import 'package:flutter/material.dart';
+
+class MovieItem extends StatelessWidget {
+  final Movie movie;
+  final String theme;
+
+  const MovieItem({
+    Key? key,
+    required this.theme,
+    required this.movie,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const SizedBox(height: 8),
+        Padding(
+          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                theme,
+                style: const TextStyle(fontSize: 17),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: const Text(
+                  '더보기 >',
+                  style: TextStyle(fontSize: 15),
+                ),
+              ),
+            ],
+          ),
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              ...List.generate(
+                12,
+                (index) {
+                  return Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              width: 150,
+                              height: 200,
+                              decoration: BoxDecoration(
+                                color: Colors.blue,
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Image.network(movie.imageUrl),
+                            ),
+                            Text(
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              movie.title,
+                              textAlign: TextAlign.start,
+                              style: const TextStyle(fontSize: 16),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              )
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
