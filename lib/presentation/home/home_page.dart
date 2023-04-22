@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
                     theme: '이번 주 인기작 TOP 10',
                     movie: Movie(
                         title: 'movie title',
-                        imageUrl:
+                        posterPath:
                             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd'
                                 '9GcQ-qbTBkThWHAY0Zcrw0ipDxt21c3m0Ppdu6RGXd58c&s'),
                   ),
