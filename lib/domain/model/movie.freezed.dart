@@ -24,7 +24,7 @@ mixin _$Movie {
   @JsonKey(name: 'poster_path')
   String get posterPath => throw _privateConstructorUsedError;
   @JsonKey(name: 'genre_ids')
-  int? get genreIds => throw _privateConstructorUsedError;
+  List<int> get genreIds => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $MovieCopyWith<$Res> {
   $Res call(
       {String title,
       @JsonKey(name: 'poster_path') String posterPath,
-      @JsonKey(name: 'genre_ids') int? genreIds,
+      @JsonKey(name: 'genre_ids') List<int> genreIds,
       int? id});
 }
 
@@ -59,7 +59,7 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
   $Res call({
     Object? title = null,
     Object? posterPath = null,
-    Object? genreIds = freezed,
+    Object? genreIds = null,
     Object? id = freezed,
   }) {
     return _then(_value.copyWith(
@@ -71,10 +71,10 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
               as String,
-      genreIds: freezed == genreIds
+      genreIds: null == genreIds
           ? _value.genreIds
           : genreIds // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as List<int>,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -92,7 +92,7 @@ abstract class _$$_MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
   $Res call(
       {String title,
       @JsonKey(name: 'poster_path') String posterPath,
-      @JsonKey(name: 'genre_ids') int? genreIds,
+      @JsonKey(name: 'genre_ids') List<int> genreIds,
       int? id});
 }
 
@@ -107,7 +107,7 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
   $Res call({
     Object? title = null,
     Object? posterPath = null,
-    Object? genreIds = freezed,
+    Object? genreIds = null,
     Object? id = freezed,
   }) {
     return _then(_$_Movie(
@@ -119,10 +119,10 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
               as String,
-      genreIds: freezed == genreIds
-          ? _value.genreIds
+      genreIds: null == genreIds
+          ? _value._genreIds
           : genreIds // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as List<int>,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -137,8 +137,9 @@ class _$_Movie implements _Movie {
   const _$_Movie(
       {required this.title,
       @JsonKey(name: 'poster_path') required this.posterPath,
-      @JsonKey(name: 'genre_ids') this.genreIds,
-      this.id});
+      @JsonKey(name: 'genre_ids') required final List<int> genreIds,
+      this.id})
+      : _genreIds = genreIds;
 
   factory _$_Movie.fromJson(Map<String, dynamic> json) =>
       _$$_MovieFromJson(json);
@@ -148,9 +149,15 @@ class _$_Movie implements _Movie {
   @override
   @JsonKey(name: 'poster_path')
   final String posterPath;
+  final List<int> _genreIds;
   @override
   @JsonKey(name: 'genre_ids')
-  final int? genreIds;
+  List<int> get genreIds {
+    if (_genreIds is EqualUnmodifiableListView) return _genreIds;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_genreIds);
+  }
+
   @override
   final int? id;
 
@@ -167,14 +174,14 @@ class _$_Movie implements _Movie {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.posterPath, posterPath) ||
                 other.posterPath == posterPath) &&
-            (identical(other.genreIds, genreIds) ||
-                other.genreIds == genreIds) &&
+            const DeepCollectionEquality().equals(other._genreIds, _genreIds) &&
             (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, title, posterPath, genreIds, id);
+  int get hashCode => Object.hash(runtimeType, title, posterPath,
+      const DeepCollectionEquality().hash(_genreIds), id);
 
   @JsonKey(ignore: true)
   @override
@@ -194,7 +201,7 @@ abstract class _Movie implements Movie {
   const factory _Movie(
       {required final String title,
       @JsonKey(name: 'poster_path') required final String posterPath,
-      @JsonKey(name: 'genre_ids') final int? genreIds,
+      @JsonKey(name: 'genre_ids') required final List<int> genreIds,
       final int? id}) = _$_Movie;
 
   factory _Movie.fromJson(Map<String, dynamic> json) = _$_Movie.fromJson;
@@ -206,7 +213,7 @@ abstract class _Movie implements Movie {
   String get posterPath;
   @override
   @JsonKey(name: 'genre_ids')
-  int? get genreIds;
+  List<int> get genreIds;
   @override
   int? get id;
   @override

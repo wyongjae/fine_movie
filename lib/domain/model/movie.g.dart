@@ -9,7 +9,8 @@ part of 'movie.dart';
 _$_Movie _$$_MovieFromJson(Map<String, dynamic> json) => _$_Movie(
       title: json['title'] as String,
       posterPath: json['poster_path'] as String,
-      genreIds: json['genre_ids'] as int?,
+      genreIds:
+          (json['genre_ids'] as List<dynamic>).map((e) => e as int).toList(),
       id: json['id'] as int?,
     );
 

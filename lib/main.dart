@@ -1,7 +1,10 @@
+import 'package:fine_movie/di/di_setup.dart';
 import 'package:fine_movie/routes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  diSetup();
+
   runApp(const MyApp());
 }
 

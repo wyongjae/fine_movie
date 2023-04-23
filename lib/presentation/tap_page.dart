@@ -25,14 +25,8 @@ class _TapPageState extends State<TapPage> {
       body: _pages[_pageIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.black54,
-        selectedLabelStyle: const TextStyle(
-          color: Colors.white,
-          fontSize: 15,
-        ),
-        unselectedLabelStyle: const TextStyle(
-          color: Colors.grey,
-          fontSize: 14,
-        ),
+        selectedLabelStyle: const TextStyle(color: Colors.white, fontSize: 15),
+        unselectedLabelStyle: const TextStyle(color: Colors.grey, fontSize: 14),
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
         type: BottomNavigationBarType.fixed,
@@ -43,18 +37,9 @@ class _TapPageState extends State<TapPage> {
           });
         },
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_filled),
-            label: '홈',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_filled),
-            label: 'VOD',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_filled),
-            label: 'MY',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: '홈'),
+          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'VOD'),
+          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'MY'),
         ],
       ),
     );

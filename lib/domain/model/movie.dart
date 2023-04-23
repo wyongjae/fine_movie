@@ -9,7 +9,7 @@ class Movie with _$Movie {
   const factory Movie({
     required String title,
     @JsonKey(name: 'poster_path') required String posterPath,
-    @JsonKey(name: 'genre_ids') int? genreIds,
+    @JsonKey(name: 'genre_ids') required List<int> genreIds,
     int? id,
   }) = _Movie;
 

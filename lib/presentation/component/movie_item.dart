@@ -60,17 +60,15 @@ class MovieItem extends StatelessWidget {
                                 ),
                                 child: Image.network(movie.posterPath),
                               ),
-                              const SizedBox(
-                                height: 6,
-                              ),
+                              const SizedBox(height: 6),
                               SizedBox(
                                 width: 150,
                                 child: Text(
+                                  movie.title,
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
-                                  movie.title,
-                                  textAlign: TextAlign.start,
                                   style: const TextStyle(fontSize: 16),
+                                  textAlign: TextAlign.start,
                                 ),
                               ),
                             ],
