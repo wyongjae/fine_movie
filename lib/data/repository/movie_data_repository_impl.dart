@@ -2,24 +2,27 @@ import 'dart:convert';
 
 import 'package:fine_movie/core/param/param.dart';
 import 'package:fine_movie/data/data_source/movie_data_source.dart';
-import 'package:fine_movie/domain/model/movie.dart';
+import 'package:fine_movie/domain/model/movie/movie.dart';
 import 'package:fine_movie/domain/repository/movie_data_repository.dart';
+import 'package:fine_movie/util/result/result.dart';
 
-class MovieDataRepositoryImpl implements MovieDataRepository<Movie, Param> {
+class MovieDataRepositoryImpl implements MovieDataRepository<Param> {
   final MovieDataSource movieDataSource;
 
   MovieDataRepositoryImpl(this.movieDataSource);
 
   @override
-  Future<Movie> fetch(Param param) async {
+  Future<Result<List<Movie>>> fetch(Param param) async {
+    final response = await movieDataSource.fetch(param);
     try {
-      final response = await movieDataSource.fetch(param);
-
       Map<String, dynamic> jsonResponse = jsonDecode(response.body);
-      Movie movie = Movie.fromJson(jsonResponse);
-      return movie;
+      List jsonResult = jsonResponse['result'];
+      List<Movie> movie = jsonResult.map((e) => Movie.fromJson(e)).toList();
+
+      return Result.success(movie);
     } catch (e) {
-      throw Exception('Failed to fetch top rated movies');
+      print(e);
+      return Result.error('네트워크 에러');
     }
   }
 }

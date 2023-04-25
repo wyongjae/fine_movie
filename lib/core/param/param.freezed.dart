@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Param {
   int get page => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int page) movieNowPlaying,
@@ -25,6 +26,7 @@ mixin _$Param {
     required TResult Function(int page) movieTopRated,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int page)? movieNowPlaying,
@@ -33,6 +35,7 @@ mixin _$Param {
     TResult? Function(int page)? movieTopRated,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int page)? movieNowPlaying,
@@ -42,6 +45,7 @@ mixin _$Param {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(MovieNowPlaying value) movieNowPlaying,
@@ -50,6 +54,7 @@ mixin _$Param {
     required TResult Function(MovieTopRated value) movieTopRated,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MovieNowPlaying value)? movieNowPlaying,
@@ -58,6 +63,7 @@ mixin _$Param {
     TResult? Function(MovieTopRated value)? movieTopRated,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MovieNowPlaying value)? movieNowPlaying,
@@ -76,6 +82,7 @@ mixin _$Param {
 abstract class $ParamCopyWith<$Res> {
   factory $ParamCopyWith(Param value, $Res Function(Param) then) =
       _$ParamCopyWithImpl<$Res, Param>;
+
   @useResult
   $Res call({int page});
 }
@@ -87,6 +94,7 @@ class _$ParamCopyWithImpl<$Res, $Val extends Param>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -110,6 +118,7 @@ abstract class _$$MovieNowPlayingCopyWith<$Res>
   factory _$$MovieNowPlayingCopyWith(
           _$MovieNowPlaying value, $Res Function(_$MovieNowPlaying) then) =
       __$$MovieNowPlayingCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({int page});
@@ -248,6 +257,7 @@ abstract class MovieNowPlaying implements Param {
 
   @override
   int get page;
+
   @override
   @JsonKey(ignore: true)
   _$$MovieNowPlayingCopyWith<_$MovieNowPlaying> get copyWith =>
@@ -259,6 +269,7 @@ abstract class _$$MoviePopularCopyWith<$Res> implements $ParamCopyWith<$Res> {
   factory _$$MoviePopularCopyWith(
           _$MoviePopular value, $Res Function(_$MoviePopular) then) =
       __$$MoviePopularCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({int page});
@@ -397,6 +408,7 @@ abstract class MoviePopular implements Param {
 
   @override
   int get page;
+
   @override
   @JsonKey(ignore: true)
   _$$MoviePopularCopyWith<_$MoviePopular> get copyWith =>
@@ -408,6 +420,7 @@ abstract class _$$MovieTopRatedCopyWith<$Res> implements $ParamCopyWith<$Res> {
   factory _$$MovieTopRatedCopyWith(
           _$MovieTopRated value, $Res Function(_$MovieTopRated) then) =
       __$$MovieTopRatedCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({int page});
@@ -546,6 +559,7 @@ abstract class MovieTopRated implements Param {
 
   @override
   int get page;
+
   @override
   @JsonKey(ignore: true)
   _$$MovieTopRatedCopyWith<_$MovieTopRated> get copyWith =>

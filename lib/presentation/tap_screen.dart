@@ -1,22 +1,22 @@
-import 'package:fine_movie/presentation/home/home_page.dart';
-import 'package:fine_movie/presentation/my/my_page.dart';
-import 'package:fine_movie/presentation/vod/vod_page.dart';
+import 'package:fine_movie/presentation/home/home_screen.dart';
+import 'package:fine_movie/presentation/my/my_screen.dart';
+import 'package:fine_movie/presentation/vod/vod_screen.dart';
 import 'package:flutter/material.dart';
 
-class TapPage extends StatefulWidget {
-  const TapPage({Key? key}) : super(key: key);
+class TapScreen extends StatefulWidget {
+  const TapScreen({Key? key}) : super(key: key);
 
   @override
-  State<TapPage> createState() => _TapPageState();
+  State<TapScreen> createState() => _TapScreenState();
 }
 
-class _TapPageState extends State<TapPage> {
+class _TapScreenState extends State<TapScreen> {
   int _pageIndex = 0;
 
   final _pages = const [
-    HomePage(),
-    VodPage(),
-    MyPage(),
+    HomeScreen(),
+    VodScreen(),
+    MyScreen(),
   ];
 
   @override

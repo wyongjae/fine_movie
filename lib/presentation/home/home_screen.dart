@@ -1,17 +1,18 @@
 import 'package:fine_movie/di/di_setup.dart';
-import 'package:fine_movie/domain/model/movie.dart';
+import 'package:fine_movie/domain/model/movie/movie.dart';
 import 'package:fine_movie/presentation/component/movie_item.dart';
-import 'package:fine_movie/presentation/home/home_page_view_model.dart';
+import 'package:fine_movie/presentation/home/home_screen_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
@@ -20,7 +21,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = getIt<HomePageViewModel>();
+    final viewModel = getIt<HomeScreenViewModel>();
 
     return Scaffold(
       body: CustomScrollView(
@@ -30,14 +31,19 @@ class _HomePageState extends State<HomePage> {
               [
                 const _HomeAppBar(),
                 InkWell(
-                  child: MovieItem(
+                  onTap: () {
+                    context.push('/tap/home/detailScreen');
+                  },
+                  child: const MovieItem(
                     theme: '이번 주 인기작 TOP 10',
                     movie: Movie(
-                        title: '',
-                        posterPath:
-                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd'
-                            '9GcQ-qbTBkThWHAY0Zcrw0ipDxt21c3m0Ppdu6RGXd58c&s',
-                        genreIds: []),
+                        title: 'title',
+                        posterPath: '/tmU7GeKVybMWFButWEGl2M4GeiP.jpg',
+                        genreIds: [],
+                        overview: '',
+                        releaseDate: '',
+                        id: 0,
+                        originalTitle: ''),
                   ),
                 ),
               ],

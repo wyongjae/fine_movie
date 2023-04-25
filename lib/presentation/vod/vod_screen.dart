@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MyPage extends StatelessWidget {
-  const MyPage({Key? key}) : super(key: key);
+class VodScreen extends StatelessWidget {
+  const VodScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Page'),
+        title: const Text('Vod Page'),
       ),
       body: Container(),
     );

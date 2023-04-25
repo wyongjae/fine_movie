@@ -1,4 +1,6 @@
-import 'package:fine_movie/domain/model/movie.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fine_movie/domain/model/movie/movie.dart';
+import 'package:fine_movie/util/constant.dart';
 import 'package:flutter/material.dart';
 
 class MovieItem extends StatelessWidget {
@@ -42,7 +44,7 @@ class MovieItem extends StatelessWidget {
             child: Row(
               children: [
                 ...List.generate(
-                  12,
+                  10,
                   (index) {
                     return Row(
                       children: [
@@ -55,10 +57,17 @@ class MovieItem extends StatelessWidget {
                                 width: 150,
                                 height: 200,
                                 decoration: BoxDecoration(
-                                  color: Colors.blue,
+                                  //Todo: borderRadius 지정이 안 됨
+
                                   borderRadius: BorderRadius.circular(8),
                                 ),
-                                child: Image.network(movie.posterPath),
+                                child: CachedNetworkImage(
+                                  imageUrl:
+                                      posterPath + (movie.posterPath ?? ''),
+                                  fit: BoxFit.cover,
+                                  errorWidget: (context, url, error) =>
+                                      const Icon(Icons.error),
+                                ),
                               ),
                               const SizedBox(height: 6),
                               SizedBox(
