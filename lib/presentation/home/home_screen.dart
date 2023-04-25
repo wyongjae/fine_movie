@@ -81,10 +81,10 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () {
                 context.push('/tap/home/detailScreen');
               },
-              child: const MovieItem(
+              child: MovieItem(
                 theme: '이번 주 인기작 TOP 10',
                 movie: Movie(
-                    title: 'title',
+                    title: viewModel.moviesTopRated.first.title,
                     posterPath: '/tmU7GeKVybMWFButWEGl2M4GeiP.jpg',
                     genreIds: [],
                     overview: '',

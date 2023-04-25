@@ -1,18 +1,25 @@
 import 'package:fine_movie/core/param/param.dart';
 import 'package:fine_movie/domain/model/movie/movie.dart';
-import 'package:fine_movie/domain/repository/movie_data_repository.dart';
+import 'package:fine_movie/domain/use_case/use_cases.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreenViewModel with ChangeNotifier {
-  final MovieDataRepository movieDataRepository;
+  final UseCases useCases;
 
-  HomeScreenViewModel(this.movieDataRepository);
+  HomeScreenViewModel(this.useCases);
 
-  List<Movie> movieTopRated = [];
+  List<Movie> moviesTopRated = [];
 
   Future<void> fetch(Param param) async {
-    movieTopRated =
-        await movieDataRepository.fetch(const Param.movieTopRated());
+    final movieTopRated =
+        await useCases.topRatedUseCase.execute(const Param.movieTopRated());
+
+    movieTopRated.when(
+      success: (movies) {
+        movies = moviesTopRated;
+      },
+      error: (error) {},
+    );
     notifyListeners();
   }
 }
