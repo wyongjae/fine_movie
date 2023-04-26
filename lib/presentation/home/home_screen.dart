@@ -19,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final viewModel = getIt<HomeScreenViewModel>();
+    final state = viewModel.state;
 
     return Scaffold(
       body: CustomScrollView(
@@ -53,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     left: 12,
                     child: SmoothPageIndicator(
                       controller: pageController,
-                      count: 6,
+                      count: 5,
                       effect: const WormEffect(
                           dotWidth: 6,
                           dotHeight: 6,
@@ -64,6 +65,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   PageView(
                     controller: pageController,
                     children: [
+                      //todo: event screen 으로 넘어가게
+
                       Image.asset('images/godfather.jpg'),
                       Image.asset('images/godfather.jpg'),
                       Image.asset('images/godfather.jpg'),
@@ -76,56 +79,27 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           SliverList(
-              delegate: SliverChildListDelegate([
-            InkWell(
-              onTap: () {
-                context.push('/tap/home/detailScreen');
-              },
-              child: MovieItem(
-                theme: '이번 주 인기작 TOP 10',
-                movie: Movie(
-                    title: viewModel.moviesTopRated.first.title,
-                    posterPath: '/tmU7GeKVybMWFButWEGl2M4GeiP.jpg',
-                    genreIds: [],
-                    overview: '',
-                    releaseDate: '',
-                    id: 0,
-                    originalTitle: ''),
-              ),
+            delegate: SliverChildListDelegate(
+              [
+                InkWell(
+                  onTap: () {
+                    context.push('/tap/home/detailScreen');
+                  },
+                  child: MovieItem(
+                    theme: '이번 주 인기작 TOP 10',
+                    movie: Movie(
+                        title: 'title',
+                        posterPath: '/tmU7GeKVybMWFButWEGl2M4GeiP.jpg',
+                        genreIds: [],
+                        overview: '',
+                        releaseDate: '',
+                        id: 0,
+                        originalTitle: ''),
+                  ),
+                ),
+              ],
             ),
-                InkWell(
-                  onTap: () {
-                    context.push('/tap/home/detailScreen');
-                  },
-                  child: const MovieItem(
-                    theme: '현재 상영작',
-                    movie: Movie(
-                        title: 'title',
-                        posterPath: '/tmU7GeKVybMWFButWEGl2M4GeiP.jpg',
-                        genreIds: [],
-                        overview: '',
-                        releaseDate: '',
-                        id: 0,
-                        originalTitle: ''),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    context.push('/tap/home/detailScreen');
-                  },
-                  child: const MovieItem(
-                    theme: '개봉 예정작',
-                    movie: Movie(
-                        title: 'title',
-                        posterPath: '/tmU7GeKVybMWFButWEGl2M4GeiP.jpg',
-                        genreIds: [],
-                        overview: '',
-                        releaseDate: '',
-                        id: 0,
-                        originalTitle: ''),
-                  ),
-                ),
-          ]))
+          )
         ],
       ),
     );

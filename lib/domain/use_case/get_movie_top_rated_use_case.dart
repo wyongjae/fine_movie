@@ -5,7 +5,7 @@ import 'package:fine_movie/domain/use_case/use_case.dart';
 import 'package:fine_movie/util/result/result.dart';
 
 class GetMovieTopRatedUseCase implements UseCase<List<Movie>, Param> {
-  final MovieDataRepository<Param> repository;
+  final MovieDataRepository<Result<List<Movie>>, Param> repository;
 
   GetMovieTopRatedUseCase(this.repository);
 
@@ -13,6 +13,10 @@ class GetMovieTopRatedUseCase implements UseCase<List<Movie>, Param> {
   Future<Result<List<Movie>>> execute(Param param) async {
     final result = await repository.fetch(param);
 
-    return Result.success(result);
+    return result.when(success: (movie) {
+      return Result.success(movie);
+    }, error: (message) {
+      return Result.error(message);
+    });
   }
 }

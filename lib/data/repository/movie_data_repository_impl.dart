@@ -6,7 +6,8 @@ import 'package:fine_movie/domain/model/movie/movie.dart';
 import 'package:fine_movie/domain/repository/movie_data_repository.dart';
 import 'package:fine_movie/util/result/result.dart';
 
-class MovieDataRepositoryImpl implements MovieDataRepository<Param> {
+class MovieDataRepositoryImpl
+    implements MovieDataRepository<Result<List<Movie>>, Param> {
   final MovieDataSource movieDataSource;
 
   MovieDataRepositoryImpl(this.movieDataSource);
@@ -16,7 +17,7 @@ class MovieDataRepositoryImpl implements MovieDataRepository<Param> {
     final response = await movieDataSource.fetch(param);
     try {
       Map<String, dynamic> jsonResponse = jsonDecode(response.body);
-      List jsonResult = jsonResponse['result'];
+      List jsonResult = jsonResponse['results'];
       List<Movie> movie = jsonResult.map((e) => Movie.fromJson(e)).toList();
 
       return Result.success(movie);

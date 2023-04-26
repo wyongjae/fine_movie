@@ -1,3 +1,3 @@
-abstract class MovieDataRepository<ParamType> {
-  Future fetch(ParamType param);
+abstract class MovieDataRepository<DataType, ParamType> {
+  Future<DataType> fetch(ParamType param);
 }

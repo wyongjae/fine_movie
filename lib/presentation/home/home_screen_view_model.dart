@@ -1,25 +1,30 @@
 import 'package:fine_movie/core/param/param.dart';
-import 'package:fine_movie/domain/model/movie/movie.dart';
 import 'package:fine_movie/domain/use_case/use_cases.dart';
+import 'package:fine_movie/presentation/home/home_state.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreenViewModel with ChangeNotifier {
   final UseCases useCases;
 
-  HomeScreenViewModel(this.useCases);
+  HomeState _state = const HomeState();
 
-  List<Movie> moviesTopRated = [];
+  HomeState get state => _state;
+
+  HomeScreenViewModel(this.useCases) {
+    fetch(const Param.movieTopRated());
+  }
 
   Future<void> fetch(Param param) async {
-    final movieTopRated =
+    final result =
         await useCases.topRatedUseCase.execute(const Param.movieTopRated());
 
-    movieTopRated.when(
-      success: (movies) {
-        movies = moviesTopRated;
+    result.when(
+      success: (movie) {
+        _state = state.copyWith(topRatedMovie: movie);
       },
       error: (error) {},
     );
+
     notifyListeners();
   }
 }
