@@ -1,7 +1,10 @@
+import 'package:fine_movie/di/di_setup.dart';
 import 'package:fine_movie/presentation/home/home_screen.dart';
+import 'package:fine_movie/presentation/home/home_screen_view_model.dart';
 import 'package:fine_movie/presentation/my/my_screen.dart';
 import 'package:fine_movie/presentation/vod/vod_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TapScreen extends StatefulWidget {
   const TapScreen({Key? key}) : super(key: key);
@@ -13,10 +16,11 @@ class TapScreen extends StatefulWidget {
 class _TapScreenState extends State<TapScreen> {
   int _pageIndex = 0;
 
-  final _pages = const [
-    HomeScreen(),
-    VodScreen(),
-    MyScreen(),
+  final _pages = [
+    ChangeNotifierProvider(
+        create: (_) => getIt<HomeScreenViewModel>(), child: const HomeScreen()),
+    const VodScreen(),
+    const MyScreen(),
   ];
 
   @override

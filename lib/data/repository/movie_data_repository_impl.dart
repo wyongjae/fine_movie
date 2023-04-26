@@ -22,8 +22,7 @@ class MovieDataRepositoryImpl
 
       return Result.success(movie);
     } catch (e) {
-      print(e);
-      return Result.error('네트워크 에러');
+      return const Result.error('네트워크 에러');
     }
   }
 }

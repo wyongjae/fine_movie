@@ -30,5 +30,6 @@ void diSetup() {
           getIt<MovieDataRepository<Result<List<Movie>>, Param>>()),
     ),
   );
-  getIt.registerFactory(() => HomeScreenViewModel(getIt<UseCases>()));
+  getIt.registerFactory<HomeScreenViewModel>(
+      () => HomeScreenViewModel(getIt<UseCases>()));
 }

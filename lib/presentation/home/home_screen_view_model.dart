@@ -15,6 +15,9 @@ class HomeScreenViewModel with ChangeNotifier {
   }
 
   Future<void> fetch(Param param) async {
+    _state = state.copyWith(isLoading: true);
+    notifyListeners();
+
     final result =
         await useCases.topRatedUseCase.execute(const Param.movieTopRated());
 
@@ -25,6 +28,7 @@ class HomeScreenViewModel with ChangeNotifier {
       error: (error) {},
     );
 
+    _state = state.copyWith(isLoading: false);
     notifyListeners();
   }
 }

@@ -20,6 +20,7 @@ HomeState _$HomeStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$HomeState {
+  bool get isLoading => throw _privateConstructorUsedError;
   List<Movie> get topRatedMovie => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -33,7 +34,7 @@ abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
-  $Res call({List<Movie> topRatedMovie});
+  $Res call({bool isLoading, List<Movie> topRatedMovie});
 }
 
 /// @nodoc
@@ -49,9 +50,14 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? isLoading = null,
     Object? topRatedMovie = null,
   }) {
     return _then(_value.copyWith(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       topRatedMovie: null == topRatedMovie
           ? _value.topRatedMovie
           : topRatedMovie // ignore: cast_nullable_to_non_nullable
@@ -67,7 +73,7 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       __$$_HomeStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Movie> topRatedMovie});
+  $Res call({bool isLoading, List<Movie> topRatedMovie});
 }
 
 /// @nodoc
@@ -81,9 +87,14 @@ class __$$_HomeStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? isLoading = null,
     Object? topRatedMovie = null,
   }) {
     return _then(_$_HomeState(
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       topRatedMovie: null == topRatedMovie
           ? _value._topRatedMovie
           : topRatedMovie // ignore: cast_nullable_to_non_nullable
@@ -95,12 +106,16 @@ class __$$_HomeStateCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_HomeState implements _HomeState {
-  const _$_HomeState({final List<Movie> topRatedMovie = const []})
+  const _$_HomeState(
+      {this.isLoading = false, final List<Movie> topRatedMovie = const []})
       : _topRatedMovie = topRatedMovie;
 
   factory _$_HomeState.fromJson(Map<String, dynamic> json) =>
       _$$_HomeStateFromJson(json);
 
+  @override
+  @JsonKey()
+  final bool isLoading;
   final List<Movie> _topRatedMovie;
   @override
   @JsonKey()
@@ -112,7 +127,7 @@ class _$_HomeState implements _HomeState {
 
   @override
   String toString() {
-    return 'HomeState(topRatedMovie: $topRatedMovie)';
+    return 'HomeState(isLoading: $isLoading, topRatedMovie: $topRatedMovie)';
   }
 
   @override
@@ -120,14 +135,16 @@ class _$_HomeState implements _HomeState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HomeState &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading) &&
             const DeepCollectionEquality()
                 .equals(other._topRatedMovie, _topRatedMovie));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_topRatedMovie));
+  int get hashCode => Object.hash(runtimeType, isLoading,
+      const DeepCollectionEquality().hash(_topRatedMovie));
 
   @JsonKey(ignore: true)
   @override
@@ -144,11 +161,14 @@ class _$_HomeState implements _HomeState {
 }
 
 abstract class _HomeState implements HomeState {
-  const factory _HomeState({final List<Movie> topRatedMovie}) = _$_HomeState;
+  const factory _HomeState(
+      {final bool isLoading, final List<Movie> topRatedMovie}) = _$_HomeState;
 
   factory _HomeState.fromJson(Map<String, dynamic> json) =
       _$_HomeState.fromJson;
 
+  @override
+  bool get isLoading;
   @override
   List<Movie> get topRatedMovie;
   @override

@@ -1,4 +1,5 @@
 import 'package:fine_movie/di/di_setup.dart';
+import 'package:fine_movie/domain/model/movie/movie.dart';
 import 'package:fine_movie/presentation/home/home_screen.dart';
 import 'package:fine_movie/presentation/home/home_screen_view_model.dart';
 import 'package:fine_movie/presentation/movie_detail/movie_detail_screen.dart';
@@ -24,9 +25,9 @@ final router = GoRouter(
               GoRoute(
                   path: 'detailScreen',
                   builder: (context, state) {
-                    // Movie movie = state.extra as Movie;
+                    Movie movie = state.extra as Movie;
 
-                    return const MovieDetailScreen();
+                    return MovieDetailScreen(movie: movie);
                   }),
             ],
           ),

@@ -8,6 +8,7 @@ part 'home_state.g.dart';
 @freezed
 class HomeState with _$HomeState {
   const factory HomeState({
+    @Default(false) bool isLoading,
     @Default([]) List<Movie> topRatedMovie,
   }) = _HomeState;
 
