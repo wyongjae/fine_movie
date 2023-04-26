@@ -15,6 +15,7 @@ _$_Movie _$$_MovieFromJson(Map<String, dynamic> json) => _$_Movie(
       id: json['id'] as int,
       originalTitle: json['original_title'] as String,
       title: json['title'] as String,
+      backdropPath: json['backdrop_path'] as String?,
     );
 
 Map<String, dynamic> _$$_MovieToJson(_$_Movie instance) => <String, dynamic>{
@@ -25,4 +26,5 @@ Map<String, dynamic> _$$_MovieToJson(_$_Movie instance) => <String, dynamic>{
       'id': instance.id,
       'original_title': instance.originalTitle,
       'title': instance.title,
+      'backdrop_path': instance.backdropPath,
     };

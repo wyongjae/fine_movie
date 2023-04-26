@@ -1,3 +1,5 @@
+import 'package:fine_movie/domain/use_case/get_genre_use_case.dart';
+import 'package:fine_movie/domain/use_case/get_movie_detail_use_case.dart';
 import 'package:fine_movie/domain/use_case/get_movie_now_playing_use_case.dart';
 import 'package:fine_movie/domain/use_case/get_movie_popular_use_case.dart';
 import 'package:fine_movie/domain/use_case/get_movie_top_rated_use_case.dart';
@@ -8,11 +10,15 @@ class UseCases {
   final GetMovieNowPlayingUseCase nowPlayingUseCase;
   final GetMoviePopularUseCase moviePopularUseCase;
   final GetMovieUpcomingUseCase upcomingUseCase;
+  final GetGenreUseCase genreUseCase;
+  final GetMovieDetailUseCase movieDetailUseCase;
 
   UseCases({
     required this.topRatedUseCase,
     required this.nowPlayingUseCase,
     required this.moviePopularUseCase,
     required this.upcomingUseCase,
+    required this.genreUseCase,
+    required this.movieDetailUseCase,
   });
 }

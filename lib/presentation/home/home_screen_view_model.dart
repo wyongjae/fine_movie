@@ -4,13 +4,13 @@ import 'package:fine_movie/presentation/home/home_state.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreenViewModel with ChangeNotifier {
-  final UseCases useCases;
+  final UseCases _useCases;
 
   HomeState _state = const HomeState();
 
   HomeState get state => _state;
 
-  HomeScreenViewModel(this.useCases) {
+  HomeScreenViewModel(this._useCases) {
     fetch(const Param.movieTopRated());
   }
 
@@ -19,7 +19,7 @@ class HomeScreenViewModel with ChangeNotifier {
     notifyListeners();
 
     final result =
-        await useCases.topRatedUseCase.execute(const Param.movieTopRated());
+        await _useCases.topRatedUseCase.execute(const Param.movieTopRated());
 
     result.when(
       success: (movie) {

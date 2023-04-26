@@ -16,7 +16,7 @@ class Movie with _$Movie {
     @JsonKey(name: 'original_title') required String originalTitle,
     // @JsonKey(name: 'original_language') required String originalLanguage,
     required String title,
-    // @JsonKey(name: 'backdrop_path') required String? backdropPath,
+    @JsonKey(name: 'backdrop_path') required String? backdropPath,
     // required num popularity,
     // @JsonKey(name: 'vote_count') required int voteCount,
     // required bool video,

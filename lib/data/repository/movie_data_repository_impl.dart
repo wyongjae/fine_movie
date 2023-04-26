@@ -7,15 +7,16 @@ import 'package:fine_movie/domain/repository/movie_data_repository.dart';
 import 'package:fine_movie/util/result/result.dart';
 
 class MovieDataRepositoryImpl
-    implements MovieDataRepository<Result<List<Movie>>, Param> {
-  final MovieDataSource movieDataSource;
+    implements MovieDataRepository<List<Movie>, Param> {
+  final MovieDataSource _movieDataSource;
 
-  MovieDataRepositoryImpl(this.movieDataSource);
+  MovieDataRepositoryImpl(this._movieDataSource);
 
   @override
   Future<Result<List<Movie>>> fetch(Param param) async {
-    final response = await movieDataSource.fetch(param);
     try {
+      final response = await _movieDataSource.fetch(param);
+
       Map<String, dynamic> jsonResponse = jsonDecode(response.body);
       List jsonResult = jsonResponse['results'];
       List<Movie> movie = jsonResult.map((e) => Movie.fromJson(e)).toList();

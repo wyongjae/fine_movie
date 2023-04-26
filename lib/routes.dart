@@ -3,6 +3,7 @@ import 'package:fine_movie/domain/model/movie/movie.dart';
 import 'package:fine_movie/presentation/home/home_screen.dart';
 import 'package:fine_movie/presentation/home/home_screen_view_model.dart';
 import 'package:fine_movie/presentation/movie_detail/movie_detail_screen.dart';
+import 'package:fine_movie/presentation/movie_detail/movie_detail_screen_view_model.dart';
 import 'package:fine_movie/presentation/my/my_screen.dart';
 import 'package:fine_movie/presentation/tap_screen.dart';
 import 'package:fine_movie/presentation/vod/vod_screen.dart';
@@ -27,7 +28,10 @@ final router = GoRouter(
                   builder: (context, state) {
                     Movie movie = state.extra as Movie;
 
-                    return MovieDetailScreen(movie: movie);
+                    return ChangeNotifierProvider(
+                      create: (_) => getIt<MovieDetailScreenViewModel>(),
+                      child: MovieDetailScreen(movie: movie),
+                    );
                   }),
             ],
           ),

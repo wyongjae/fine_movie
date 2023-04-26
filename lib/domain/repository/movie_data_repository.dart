@@ -1,3 +1,5 @@
+import 'package:fine_movie/util/result/result.dart';
+
 abstract class MovieDataRepository<DataType, ParamType> {
-  Future<DataType> fetch(ParamType param);
+  Future<Result<DataType>> fetch(ParamType param);
 }

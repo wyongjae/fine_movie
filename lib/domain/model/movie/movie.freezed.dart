@@ -33,6 +33,8 @@ mixin _$Movie {
   String get originalTitle =>
       throw _privateConstructorUsedError; // @JsonKey(name: 'original_language') required String originalLanguage,
   String get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'backdrop_path')
+  String? get backdropPath => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +53,8 @@ abstract class $MovieCopyWith<$Res> {
       @JsonKey(name: 'genre_ids') List<int> genreIds,
       int id,
       @JsonKey(name: 'original_title') String originalTitle,
-      String title});
+      String title,
+      @JsonKey(name: 'backdrop_path') String? backdropPath});
 }
 
 /// @nodoc
@@ -74,6 +77,7 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
     Object? id = null,
     Object? originalTitle = null,
     Object? title = null,
+    Object? backdropPath = freezed,
   }) {
     return _then(_value.copyWith(
       posterPath: freezed == posterPath
@@ -104,6 +108,10 @@ class _$MovieCopyWithImpl<$Res, $Val extends Movie>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      backdropPath: freezed == backdropPath
+          ? _value.backdropPath
+          : backdropPath // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -121,7 +129,8 @@ abstract class _$$_MovieCopyWith<$Res> implements $MovieCopyWith<$Res> {
       @JsonKey(name: 'genre_ids') List<int> genreIds,
       int id,
       @JsonKey(name: 'original_title') String originalTitle,
-      String title});
+      String title,
+      @JsonKey(name: 'backdrop_path') String? backdropPath});
 }
 
 /// @nodoc
@@ -140,6 +149,7 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
     Object? id = null,
     Object? originalTitle = null,
     Object? title = null,
+    Object? backdropPath = freezed,
   }) {
     return _then(_$_Movie(
       posterPath: freezed == posterPath
@@ -170,6 +180,10 @@ class __$$_MovieCopyWithImpl<$Res> extends _$MovieCopyWithImpl<$Res, _$_Movie>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      backdropPath: freezed == backdropPath
+          ? _value.backdropPath
+          : backdropPath // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -184,7 +198,8 @@ class _$_Movie implements _Movie {
       @JsonKey(name: 'genre_ids') required final List<int> genreIds,
       required this.id,
       @JsonKey(name: 'original_title') required this.originalTitle,
-      required this.title})
+      required this.title,
+      @JsonKey(name: 'backdrop_path') required this.backdropPath})
       : _genreIds = genreIds;
 
   factory _$_Movie.fromJson(Map<String, dynamic> json) =>
@@ -216,10 +231,13 @@ class _$_Movie implements _Movie {
 // @JsonKey(name: 'original_language') required String originalLanguage,
   @override
   final String title;
+  @override
+  @JsonKey(name: 'backdrop_path')
+  final String? backdropPath;
 
   @override
   String toString() {
-    return 'Movie(posterPath: $posterPath, overview: $overview, releaseDate: $releaseDate, genreIds: $genreIds, id: $id, originalTitle: $originalTitle, title: $title)';
+    return 'Movie(posterPath: $posterPath, overview: $overview, releaseDate: $releaseDate, genreIds: $genreIds, id: $id, originalTitle: $originalTitle, title: $title, backdropPath: $backdropPath)';
   }
 
   @override
@@ -237,7 +255,9 @@ class _$_Movie implements _Movie {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.originalTitle, originalTitle) ||
                 other.originalTitle == originalTitle) &&
-            (identical(other.title, title) || other.title == title));
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.backdropPath, backdropPath) ||
+                other.backdropPath == backdropPath));
   }
 
   @JsonKey(ignore: true)
@@ -250,7 +270,8 @@ class _$_Movie implements _Movie {
       const DeepCollectionEquality().hash(_genreIds),
       id,
       originalTitle,
-      title);
+      title,
+      backdropPath);
 
   @JsonKey(ignore: true)
   @override
@@ -268,13 +289,19 @@ class _$_Movie implements _Movie {
 
 abstract class _Movie implements Movie {
   const factory _Movie(
-      {@JsonKey(name: 'poster_path') required final String? posterPath,
+      {@JsonKey(name: 'poster_path')
+          required final String? posterPath,
       required final String overview,
-      @JsonKey(name: 'release_date') required final String? releaseDate,
-      @JsonKey(name: 'genre_ids') required final List<int> genreIds,
+      @JsonKey(name: 'release_date')
+          required final String? releaseDate,
+      @JsonKey(name: 'genre_ids')
+          required final List<int> genreIds,
       required final int id,
-      @JsonKey(name: 'original_title') required final String originalTitle,
-      required final String title}) = _$_Movie;
+      @JsonKey(name: 'original_title')
+          required final String originalTitle,
+      required final String title,
+      @JsonKey(name: 'backdrop_path')
+          required final String? backdropPath}) = _$_Movie;
 
   factory _Movie.fromJson(Map<String, dynamic> json) = _$_Movie.fromJson;
 
@@ -296,6 +323,9 @@ abstract class _Movie implements Movie {
   String get originalTitle;
   @override // @JsonKey(name: 'original_language') required String originalLanguage,
   String get title;
+  @override
+  @JsonKey(name: 'backdrop_path')
+  String? get backdropPath;
   @override
   @JsonKey(ignore: true)
   _$$_MovieCopyWith<_$_Movie> get copyWith =>
