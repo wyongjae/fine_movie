@@ -24,6 +24,7 @@ mixin _$MovieDetail {
   @JsonKey(name: 'backdrop_path')
   String? get backdropPath => throw _privateConstructorUsedError;
   @JsonKey(name: 'belongs_to_collection')
+  Collection? get belongsToCollection => throw _privateConstructorUsedError;
   int get budget => throw _privateConstructorUsedError;
   List<Genre> get genres => throw _privateConstructorUsedError;
   String? get homepage => throw _privateConstructorUsedError;
@@ -66,7 +67,8 @@ abstract class $MovieDetailCopyWith<$Res> {
   $Res call(
       {bool adult,
       @JsonKey(name: 'backdrop_path') String? backdropPath,
-      @JsonKey(name: 'belongs_to_collection') int budget,
+      @JsonKey(name: 'belongs_to_collection') Collection? belongsToCollection,
+      int budget,
       List<Genre> genres,
       String? homepage,
       int id,
@@ -85,6 +87,8 @@ abstract class $MovieDetailCopyWith<$Res> {
       bool video,
       @JsonKey(name: 'vote_average') double voteAverage,
       @JsonKey(name: 'vote_count') int voteCount});
+
+  $CollectionCopyWith<$Res>? get belongsToCollection;
 }
 
 /// @nodoc
@@ -102,6 +106,7 @@ class _$MovieDetailCopyWithImpl<$Res, $Val extends MovieDetail>
   $Res call({
     Object? adult = null,
     Object? backdropPath = freezed,
+    Object? belongsToCollection = freezed,
     Object? budget = null,
     Object? genres = null,
     Object? homepage = freezed,
@@ -131,6 +136,10 @@ class _$MovieDetailCopyWithImpl<$Res, $Val extends MovieDetail>
           ? _value.backdropPath
           : backdropPath // ignore: cast_nullable_to_non_nullable
               as String?,
+      belongsToCollection: freezed == belongsToCollection
+          ? _value.belongsToCollection
+          : belongsToCollection // ignore: cast_nullable_to_non_nullable
+              as Collection?,
       budget: null == budget
           ? _value.budget
           : budget // ignore: cast_nullable_to_non_nullable
@@ -209,6 +218,18 @@ class _$MovieDetailCopyWithImpl<$Res, $Val extends MovieDetail>
               as int,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CollectionCopyWith<$Res>? get belongsToCollection {
+    if (_value.belongsToCollection == null) {
+      return null;
+    }
+
+    return $CollectionCopyWith<$Res>(_value.belongsToCollection!, (value) {
+      return _then(_value.copyWith(belongsToCollection: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -222,7 +243,8 @@ abstract class _$$_MovieDetailCopyWith<$Res>
   $Res call(
       {bool adult,
       @JsonKey(name: 'backdrop_path') String? backdropPath,
-      @JsonKey(name: 'belongs_to_collection') int budget,
+      @JsonKey(name: 'belongs_to_collection') Collection? belongsToCollection,
+      int budget,
       List<Genre> genres,
       String? homepage,
       int id,
@@ -241,6 +263,9 @@ abstract class _$$_MovieDetailCopyWith<$Res>
       bool video,
       @JsonKey(name: 'vote_average') double voteAverage,
       @JsonKey(name: 'vote_count') int voteCount});
+
+  @override
+  $CollectionCopyWith<$Res>? get belongsToCollection;
 }
 
 /// @nodoc
@@ -256,6 +281,7 @@ class __$$_MovieDetailCopyWithImpl<$Res>
   $Res call({
     Object? adult = null,
     Object? backdropPath = freezed,
+    Object? belongsToCollection = freezed,
     Object? budget = null,
     Object? genres = null,
     Object? homepage = freezed,
@@ -285,6 +311,10 @@ class __$$_MovieDetailCopyWithImpl<$Res>
           ? _value.backdropPath
           : backdropPath // ignore: cast_nullable_to_non_nullable
               as String?,
+      belongsToCollection: freezed == belongsToCollection
+          ? _value.belongsToCollection
+          : belongsToCollection // ignore: cast_nullable_to_non_nullable
+              as Collection?,
       budget: null == budget
           ? _value.budget
           : budget // ignore: cast_nullable_to_non_nullable
@@ -371,7 +401,8 @@ class _$_MovieDetail implements _MovieDetail {
   const _$_MovieDetail(
       {required this.adult,
       @JsonKey(name: 'backdrop_path') required this.backdropPath,
-      @JsonKey(name: 'belongs_to_collection') required this.budget,
+      @JsonKey(name: 'belongs_to_collection') required this.belongsToCollection,
+      required this.budget,
       required final List<Genre> genres,
       required this.homepage,
       required this.id,
@@ -402,6 +433,8 @@ class _$_MovieDetail implements _MovieDetail {
   final String? backdropPath;
   @override
   @JsonKey(name: 'belongs_to_collection')
+  final Collection? belongsToCollection;
+  @override
   final int budget;
   final List<Genre> _genres;
   @override
@@ -455,7 +488,7 @@ class _$_MovieDetail implements _MovieDetail {
 
   @override
   String toString() {
-    return 'MovieDetail(adult: $adult, backdropPath: $backdropPath, budget: $budget, genres: $genres, homepage: $homepage, id: $id, imdbId: $imdbId, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, releaseDate: $releaseDate, revenue: $revenue, runtime: $runtime, status: $status, tagline: $tagline, title: $title, video: $video, voteAverage: $voteAverage, voteCount: $voteCount)';
+    return 'MovieDetail(adult: $adult, backdropPath: $backdropPath, belongsToCollection: $belongsToCollection, budget: $budget, genres: $genres, homepage: $homepage, id: $id, imdbId: $imdbId, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, popularity: $popularity, posterPath: $posterPath, releaseDate: $releaseDate, revenue: $revenue, runtime: $runtime, status: $status, tagline: $tagline, title: $title, video: $video, voteAverage: $voteAverage, voteCount: $voteCount)';
   }
 
   @override
@@ -466,6 +499,8 @@ class _$_MovieDetail implements _MovieDetail {
             (identical(other.adult, adult) || other.adult == adult) &&
             (identical(other.backdropPath, backdropPath) ||
                 other.backdropPath == backdropPath) &&
+            (identical(other.belongsToCollection, belongsToCollection) ||
+                other.belongsToCollection == belongsToCollection) &&
             (identical(other.budget, budget) || other.budget == budget) &&
             const DeepCollectionEquality().equals(other._genres, _genres) &&
             (identical(other.homepage, homepage) ||
@@ -502,6 +537,7 @@ class _$_MovieDetail implements _MovieDetail {
         runtimeType,
         adult,
         backdropPath,
+        belongsToCollection,
         budget,
         const DeepCollectionEquality().hash(_genres),
         homepage,
@@ -543,7 +579,8 @@ abstract class _MovieDetail implements MovieDetail {
       @JsonKey(name: 'backdrop_path')
           required final String? backdropPath,
       @JsonKey(name: 'belongs_to_collection')
-          required final int budget,
+          required final Collection? belongsToCollection,
+      required final int budget,
       required final List<Genre> genres,
       required final String? homepage,
       required final int id,
@@ -580,6 +617,8 @@ abstract class _MovieDetail implements MovieDetail {
   String? get backdropPath;
   @override
   @JsonKey(name: 'belongs_to_collection')
+  Collection? get belongsToCollection;
+  @override
   int get budget;
   @override
   List<Genre> get genres;

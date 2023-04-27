@@ -1,3 +1,4 @@
+import 'package:fine_movie/domain/model/collection/collection.dart';
 import 'package:fine_movie/domain/model/genre/genre.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -10,7 +11,9 @@ class MovieDetail with _$MovieDetail {
   const factory MovieDetail({
     required bool adult,
     @JsonKey(name: 'backdrop_path') required String? backdropPath,
-    @JsonKey(name: 'belongs_to_collection') required int budget,
+    @JsonKey(name: 'belongs_to_collection')
+        required Collection? belongsToCollection,
+    required int budget,
     required List<Genre> genres,
     required String? homepage,
     required int id,

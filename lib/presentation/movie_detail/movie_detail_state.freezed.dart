@@ -21,7 +21,7 @@ MovieDetailState _$MovieDetailStateFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MovieDetailState {
   bool get isLoading => throw _privateConstructorUsedError;
-  MovieDetail? get movieDetail => throw _privateConstructorUsedError;
+  MovieDetail? get movieDetails => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,9 +35,9 @@ abstract class $MovieDetailStateCopyWith<$Res> {
           MovieDetailState value, $Res Function(MovieDetailState) then) =
       _$MovieDetailStateCopyWithImpl<$Res, MovieDetailState>;
   @useResult
-  $Res call({bool isLoading, MovieDetail? movieDetail});
+  $Res call({bool isLoading, MovieDetail? movieDetails});
 
-  $MovieDetailCopyWith<$Res>? get movieDetail;
+  $MovieDetailCopyWith<$Res>? get movieDetails;
 }
 
 /// @nodoc
@@ -54,29 +54,29 @@ class _$MovieDetailStateCopyWithImpl<$Res, $Val extends MovieDetailState>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? movieDetail = freezed,
+    Object? movieDetails = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      movieDetail: freezed == movieDetail
-          ? _value.movieDetail
-          : movieDetail // ignore: cast_nullable_to_non_nullable
+      movieDetails: freezed == movieDetails
+          ? _value.movieDetails
+          : movieDetails // ignore: cast_nullable_to_non_nullable
               as MovieDetail?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $MovieDetailCopyWith<$Res>? get movieDetail {
-    if (_value.movieDetail == null) {
+  $MovieDetailCopyWith<$Res>? get movieDetails {
+    if (_value.movieDetails == null) {
       return null;
     }
 
-    return $MovieDetailCopyWith<$Res>(_value.movieDetail!, (value) {
-      return _then(_value.copyWith(movieDetail: value) as $Val);
+    return $MovieDetailCopyWith<$Res>(_value.movieDetails!, (value) {
+      return _then(_value.copyWith(movieDetails: value) as $Val);
     });
   }
 }
@@ -89,10 +89,10 @@ abstract class _$$_MovieDetailStateCopyWith<$Res>
       __$$_MovieDetailStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading, MovieDetail? movieDetail});
+  $Res call({bool isLoading, MovieDetail? movieDetails});
 
   @override
-  $MovieDetailCopyWith<$Res>? get movieDetail;
+  $MovieDetailCopyWith<$Res>? get movieDetails;
 }
 
 /// @nodoc
@@ -107,16 +107,16 @@ class __$$_MovieDetailStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
-    Object? movieDetail = freezed,
+    Object? movieDetails = freezed,
   }) {
     return _then(_$_MovieDetailState(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      movieDetail: freezed == movieDetail
-          ? _value.movieDetail
-          : movieDetail // ignore: cast_nullable_to_non_nullable
+      movieDetails: freezed == movieDetails
+          ? _value.movieDetails
+          : movieDetails // ignore: cast_nullable_to_non_nullable
               as MovieDetail?,
     ));
   }
@@ -125,7 +125,7 @@ class __$$_MovieDetailStateCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_MovieDetailState implements _MovieDetailState {
-  const _$_MovieDetailState({this.isLoading = false, this.movieDetail = null});
+  const _$_MovieDetailState({this.isLoading = false, this.movieDetails = null});
 
   factory _$_MovieDetailState.fromJson(Map<String, dynamic> json) =>
       _$$_MovieDetailStateFromJson(json);
@@ -135,11 +135,11 @@ class _$_MovieDetailState implements _MovieDetailState {
   final bool isLoading;
   @override
   @JsonKey()
-  final MovieDetail? movieDetail;
+  final MovieDetail? movieDetails;
 
   @override
   String toString() {
-    return 'MovieDetailState(isLoading: $isLoading, movieDetail: $movieDetail)';
+    return 'MovieDetailState(isLoading: $isLoading, movieDetails: $movieDetails)';
   }
 
   @override
@@ -149,13 +149,13 @@ class _$_MovieDetailState implements _MovieDetailState {
             other is _$_MovieDetailState &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
-            (identical(other.movieDetail, movieDetail) ||
-                other.movieDetail == movieDetail));
+            (identical(other.movieDetails, movieDetails) ||
+                other.movieDetails == movieDetails));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, movieDetail);
+  int get hashCode => Object.hash(runtimeType, isLoading, movieDetails);
 
   @JsonKey(ignore: true)
   @override
@@ -174,7 +174,7 @@ class _$_MovieDetailState implements _MovieDetailState {
 abstract class _MovieDetailState implements MovieDetailState {
   const factory _MovieDetailState(
       {final bool isLoading,
-      final MovieDetail? movieDetail}) = _$_MovieDetailState;
+      final MovieDetail? movieDetails}) = _$_MovieDetailState;
 
   factory _MovieDetailState.fromJson(Map<String, dynamic> json) =
       _$_MovieDetailState.fromJson;
@@ -182,7 +182,7 @@ abstract class _MovieDetailState implements MovieDetailState {
   @override
   bool get isLoading;
   @override
-  MovieDetail? get movieDetail;
+  MovieDetail? get movieDetails;
   @override
   @JsonKey(ignore: true)
   _$$_MovieDetailStateCopyWith<_$_MovieDetailState> get copyWith =>

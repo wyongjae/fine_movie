@@ -7,13 +7,11 @@ class MovieDetailScreenViewModel with ChangeNotifier {
   final UseCases _useCases;
   int movieId;
 
-  MovieDetailState _state = MovieDetailState();
+  MovieDetailState _state = const MovieDetailState();
 
   MovieDetailState get state => _state;
 
-  MovieDetailScreenViewModel(this._useCases, this.movieId) {
-    fetch();
-  }
+  MovieDetailScreenViewModel(this._useCases, this.movieId);
 
   Future<void> fetch() async {
     _state = state.copyWith(isLoading: true);
@@ -34,8 +32,8 @@ class MovieDetailScreenViewModel with ChangeNotifier {
         await _useCases.movieDetailUseCase.execute(Param.movieDetail(movieId));
 
     result.when(
-      success: (movieDetails) {
-        _state = state.copyWith(movieDetail: movieDetails);
+      success: (movieDetail) {
+        _state = state.copyWith(movieDetails: movieDetail);
       },
       error: (message) {},
     );

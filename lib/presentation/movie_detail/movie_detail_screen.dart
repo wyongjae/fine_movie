@@ -81,11 +81,14 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                           const SizedBox(height: 10),
                           Row(
                             children: [
-                              Text('영화 장르'),
+                              Text(
+                                  '${state.movieDetails?.genres.first.name}, ' ??
+                                      ''),
+                              Text(state.movieDetails?.genres.last.name ?? ''),
                               SizedBox(width: 10),
                               Text('12세 관람가'),
                               SizedBox(width: 10),
-                              Text('${state.movieDetail?.runtime} 분' ?? ''),
+                              Text('${state.movieDetails?.runtime} 분' ?? ''),
                             ],
                           ),
                           const SizedBox(height: 10),

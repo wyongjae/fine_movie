@@ -9,7 +9,7 @@ part 'movie_detail_state.g.dart';
 class MovieDetailState with _$MovieDetailState {
   const factory MovieDetailState({
     @Default(false) bool isLoading,
-    @Default(null) MovieDetail? movieDetail,
+    @Default(null) MovieDetail? movieDetails,
   }) = _MovieDetailState;
 
   factory MovieDetailState.fromJson(Map<String, Object?> json) =>
