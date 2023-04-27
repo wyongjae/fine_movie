@@ -11,10 +11,10 @@ class HomeScreenViewModel with ChangeNotifier {
   HomeState get state => _state;
 
   HomeScreenViewModel(this._useCases) {
-    fetch(const Param.movieTopRated());
+    fetch();
   }
 
-  Future<void> fetch(Param param) async {
+  Future<void> fetch() async {
     _state = state.copyWith(isLoading: true);
     notifyListeners();
 

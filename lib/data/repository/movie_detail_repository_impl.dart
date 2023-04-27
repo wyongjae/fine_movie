@@ -15,10 +15,10 @@ class MovieDetailRepositoryImpl
   @override
   Future<Result<MovieDetail>> fetch(Param param) async {
     try {
-      final result = await _movieDataSource.fetch(param);
+      final response = await _movieDataSource.fetch(param);
 
-      Map<String, dynamic> jsonResult = jsonDecode(result.body);
-      final movieDetail = MovieDetail.fromJson(jsonResult);
+      Map<String, dynamic> jsonResult = jsonDecode(response.body);
+      MovieDetail movieDetail = MovieDetail.fromJson(jsonResult);
 
       return Result.success(movieDetail);
     } catch (e) {

@@ -5,7 +5,7 @@ import 'package:fine_movie/domain/use_case/use_case.dart';
 import 'package:fine_movie/util/result/result.dart';
 
 class GetMovieUpcomingUseCase implements UseCase<List<Movie>, Param> {
-  final MovieDataRepository _repository;
+  final MovieDataRepository<List<Movie>, Param> _repository;
 
   GetMovieUpcomingUseCase(this._repository);
 

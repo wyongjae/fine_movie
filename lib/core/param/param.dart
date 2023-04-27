@@ -29,7 +29,7 @@ String paramToUrl(Param param, String language) {
     movieTopRated: (int page) =>
         '$movieBaseUrl/top_rated?api_key=$myKey&language=$language&page=$page',
     genres: () => '$baseUrl/genre/movie/list?api_key=$myKey&language=$language',
-    movieDetail: (int movieId) => ''
+    movieDetail: (int movieId) =>
         '$movieBaseUrl/$movieId?api_key=$myKey&language=$language',
   );
 }

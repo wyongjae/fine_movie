@@ -12,5 +12,6 @@ class HomeState with _$HomeState {
     @Default([]) List<Movie> topRatedMovie,
   }) = _HomeState;
 
-  factory HomeState.fromJson(Map<String, Object?> json) => _$HomeStateFromJson(json);
+  factory HomeState.fromJson(Map<String, Object?> json) =>
+      _$HomeStateFromJson(json);
 }

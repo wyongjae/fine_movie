@@ -25,11 +25,9 @@ class MovieItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
             child: CachedNetworkImage(
-              imageUrl:
-              posterPath + (movie.posterPath ?? ''),
+              imageUrl: posterPath + (movie.posterPath ?? ''),
               fit: BoxFit.cover,
-              errorWidget: (context, url, error) =>
-              const Icon(Icons.error),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
           ),
           const SizedBox(height: 6),

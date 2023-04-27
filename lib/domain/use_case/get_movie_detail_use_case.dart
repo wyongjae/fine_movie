@@ -10,16 +10,13 @@ class GetMovieDetailUseCase implements UseCase<MovieDetail, Param> {
   GetMovieDetailUseCase(this._repository);
 
   @override
-  Future<Result<MovieDetail>> execute(param) async {
+  Future<Result<MovieDetail>> execute(Param param) async {
     final result = await _repository.fetch(param);
 
-    return result.when(
-      success: (movieDetail) {
-        return Result.success(movieDetail);
-      },
-      error: (message) {
-        return Result.error(message);
-      },
-    );
+    return result.when(success: (movieDetail) {
+      return Result.success(movieDetail);
+    }, error: (message) {
+      return Result.error(message);
+    });
   }
 }
