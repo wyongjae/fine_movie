@@ -10,6 +10,8 @@ class HomeState with _$HomeState {
   const factory HomeState({
     @Default(false) bool isLoading,
     @Default([]) List<Movie> topRatedMovie,
+    @Default([]) List<Movie> popularMovie,
+    @Default([]) List<Movie> nowPlayingMovie,
   }) = _HomeState;
 
   factory HomeState.fromJson(Map<String, Object?> json) =>

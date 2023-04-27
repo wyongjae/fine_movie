@@ -13,10 +13,13 @@ class GetGenreUseCase implements UseCase<List<Genre>, Param> {
   Future<Result<List<Genre>>> execute(Param param) async {
     final result = await _repository.fetch(param);
 
-    return result.when(success: (genre) {
-      return Result.success(genre);
-    }, error: (message) {
-      return Result.error(message);
-    });
+    return result.when(
+      success: (genre) {
+        return Result.success(genre);
+      },
+      error: (message) {
+        return Result.error(message);
+      },
+    );
   }
 }

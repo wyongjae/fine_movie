@@ -10,8 +10,16 @@ class GetMoviePopularUseCase implements UseCase<List<Movie>, Param> {
   GetMoviePopularUseCase(this._repository);
 
   @override
-  Future<Result<List<Movie>>> execute(param) {
-    // TODO: implement execute
-    throw UnimplementedError();
+  Future<Result<List<Movie>>> execute(Param param) async {
+    final result = await _repository.fetch(param);
+
+    return result.when(
+      success: (popularMovie) {
+        return Result.success(popularMovie);
+      },
+      error: (message) {
+        return Result.error(message);
+      },
+    );
   }
 }

@@ -47,14 +47,11 @@ class MovieList extends StatelessWidget {
                 ...List.generate(
                   10,
                   (index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: InkWell(
-                        onTap: () {
-                          onTap?.call(movies[index]);
-                        },
-                        child: MovieItem(movie: movies[index]),
-                      ),
+                    return InkWell(
+                      onTap: () {
+                        onTap?.call(movies[index]);
+                      },
+                      child: MovieItem(movie: movies[index]),
                     );
                   },
                 )

@@ -10,8 +10,16 @@ class GetMovieNowPlayingUseCase implements UseCase<List<Movie>, Param> {
   GetMovieNowPlayingUseCase(this._repository);
 
   @override
-  Future<Result<List<Movie>>> execute(param) {
-    // TODO: implement execute
-    throw UnimplementedError();
+  Future<Result<List<Movie>>> execute(Param param) async {
+    final result = await _repository.fetch(param);
+
+    return result.when(
+      success: (nowPlayingMovies) {
+        return Result.success(nowPlayingMovies);
+      },
+      error: (message) {
+        return Result.error(message);
+      },
+    );
   }
 }

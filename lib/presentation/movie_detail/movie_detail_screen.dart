@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fine_movie/domain/model/movie/movie.dart';
+import 'package:fine_movie/presentation/movie_detail/component/movie_detail_info.dart';
 import 'package:fine_movie/presentation/movie_detail/movie_detail_screen_view_model.dart';
 import 'package:fine_movie/util/constant.dart';
 import 'package:flutter/material.dart';
@@ -73,54 +74,9 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                     sliver: SliverList(
                       delegate: SliverChildListDelegate(
                         [
-                          Text(
-                            widget.movie.title,
-                            style: const TextStyle(
-                                fontSize: 26, fontWeight: FontWeight.w600),
-                          ),
-                          const SizedBox(height: 10),
-                          Row(
-                            children: [
-                              Text(
-                                  '${state.movieDetails?.genres.first.name}, ' ??
-                                      ''),
-                              Text(state.movieDetails?.genres.last.name ?? ''),
-                              SizedBox(width: 10),
-                              Text('12세 관람가'),
-                              SizedBox(width: 10),
-                              Text('${state.movieDetails?.runtime} 분' ?? ''),
-                            ],
-                          ),
-                          const SizedBox(height: 10),
-                          Row(
-                            children: const [
-                              Icon(Icons.star_border, size: 40),
-                              SizedBox(width: 15),
-                              Icon(Icons.share, size: 35),
-                              SizedBox(width: 15),
-                              Icon(Icons.download_rounded, size: 40),
-                            ],
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            '원제 : ${widget.movie.originalTitle}',
-                            style: const TextStyle(fontSize: 16),
-                          ),
-                          const SizedBox(height: 5),
-                          Text(
-                            '감독 : 감독 이름',
-                            style: const TextStyle(fontSize: 16),
-                          ),
-                          const SizedBox(height: 5),
-                          Text(
-                            '출연 : 배우 이름',
-                            style: const TextStyle(fontSize: 16),
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            widget.movie.overview ?? '',
-                            style: const TextStyle(fontSize: 16),
-                          ),
+                          MovieDetailInfo(
+                              movie: widget.movie,
+                              movieDetail: state.movieDetails),
                         ],
                       ),
                     ),

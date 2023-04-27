@@ -18,6 +18,15 @@ class HomeScreenViewModel with ChangeNotifier {
     _state = state.copyWith(isLoading: true);
     notifyListeners();
 
+    await _getMovieTopRated();
+    await _getMovieNowPlaying();
+    await _getMoviePopular();
+
+    _state = state.copyWith(isLoading: false);
+    notifyListeners();
+  }
+
+  Future<void> _getMovieTopRated() async {
     final result =
         await _useCases.topRatedUseCase.execute(const Param.movieTopRated());
 
@@ -27,8 +36,29 @@ class HomeScreenViewModel with ChangeNotifier {
       },
       error: (error) {},
     );
+  }
 
-    _state = state.copyWith(isLoading: false);
-    notifyListeners();
+  Future<void> _getMovieNowPlaying() async {
+    final result =
+        await _useCases.topRatedUseCase.execute(const Param.movieNowPlaying());
+
+    result.when(
+      success: (movie) {
+        _state = state.copyWith(nowPlayingMovie: movie);
+      },
+      error: (error) {},
+    );
+  }
+
+  Future<void> _getMoviePopular() async {
+    final result =
+        await _useCases.topRatedUseCase.execute(const Param.moviePopular());
+
+    result.when(
+      success: (movie) {
+        _state = state.copyWith(popularMovie: movie);
+      },
+      error: (error) {},
+    );
   }
 }

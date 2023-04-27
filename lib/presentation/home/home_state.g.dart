@@ -12,10 +12,20 @@ _$_HomeState _$$_HomeStateFromJson(Map<String, dynamic> json) => _$_HomeState(
               ?.map((e) => Movie.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      popularMovie: (json['popularMovie'] as List<dynamic>?)
+              ?.map((e) => Movie.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      nowPlayingMovie: (json['nowPlayingMovie'] as List<dynamic>?)
+              ?.map((e) => Movie.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$_HomeStateToJson(_$_HomeState instance) =>
     <String, dynamic>{
       'isLoading': instance.isLoading,
       'topRatedMovie': instance.topRatedMovie,
+      'popularMovie': instance.popularMovie,
+      'nowPlayingMovie': instance.nowPlayingMovie,
     };

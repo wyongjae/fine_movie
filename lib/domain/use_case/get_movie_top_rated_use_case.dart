@@ -13,10 +13,13 @@ class GetMovieTopRatedUseCase implements UseCase<List<Movie>, Param> {
   Future<Result<List<Movie>>> execute(Param param) async {
     final result = await _repository.fetch(param);
 
-    return result.when(success: (movie) {
-      return Result.success(movie);
-    }, error: (message) {
-      return Result.error(message);
-    });
+    return result.when(
+      success: (movie) {
+        return Result.success(movie);
+      },
+      error: (message) {
+        return Result.error(message);
+      },
+    );
   }
 }
