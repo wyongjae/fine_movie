@@ -62,9 +62,8 @@ class MovieDetailScreenViewModel with ChangeNotifier {
   }
 
   Future<void> callMovieVideo() async {
-    //todo: 수정 필요
-
-    final Uri url = Uri.parse(youtubeUrl + state.videos[0].key);
+    final Uri url = Uri.parse(
+        youtubeUrl + state.videos.take(1).map((e) => e.key).toString());
 
     if (!await launchUrl(url)) {
       throw Exception('Could not launch $url');

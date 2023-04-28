@@ -37,7 +37,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
 
     return Scaffold(
       body: state.isLoading
-          ? const CircularProgressIndicator()
+          ? const Center(child: CircularProgressIndicator())
           : SafeArea(
               child: CustomScrollView(
                 slivers: [

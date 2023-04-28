@@ -6,11 +6,11 @@ import 'package:fine_movie/domain/model/genre/genre.dart';
 import 'package:fine_movie/domain/repository/movie_data_repository.dart';
 import 'package:fine_movie/util/result/result.dart';
 
-class GenreDataRepositoryImpl
+class MovieGenreRepositoryImpl
     implements MovieDataRepository<List<Genre>, Param> {
   final MovieDataSource _movieDataSource;
 
-  GenreDataRepositoryImpl(this._movieDataSource);
+  MovieGenreRepositoryImpl(this._movieDataSource);
 
   @override
   Future<Result<List<Genre>>> fetch(Param param) async {

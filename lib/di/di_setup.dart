@@ -1,6 +1,6 @@
 import 'package:fine_movie/core/param/param.dart';
 import 'package:fine_movie/data/data_source/movie_data_source.dart';
-import 'package:fine_movie/data/repository/genre_data_repository_impl.dart';
+import 'package:fine_movie/data/repository/movie_genre_repository_impl.dart';
 import 'package:fine_movie/data/repository/movie_data_repository_impl.dart';
 import 'package:fine_movie/data/repository/movie_detail_repository_impl.dart';
 import 'package:fine_movie/data/repository/movie_video_repository_impl.dart';
@@ -31,7 +31,7 @@ void diSetup() {
       () => MovieDataRepositoryImpl(getIt<MovieDataSource>()));
 
   getIt.registerLazySingleton<MovieDataRepository<List<Genre>, Param>>(
-      () => GenreDataRepositoryImpl(getIt<MovieDataSource>()));
+      () => MovieGenreRepositoryImpl(getIt<MovieDataSource>()));
 
   getIt.registerLazySingleton<MovieDataRepository<MovieDetail, Param>>(
       () => MovieDetailRepositoryImpl(getIt<MovieDataSource>()));

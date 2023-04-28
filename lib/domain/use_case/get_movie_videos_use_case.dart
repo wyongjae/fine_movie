@@ -15,7 +15,8 @@ class GetMovieVideosUseCase implements UseCase<List<Video>, Param> {
 
     return result.when(
       success: (videos) {
-        return Result.success(videos);
+        return Result.success(
+            videos.where((element) => element.type == 'Trailer').toList());
       },
       error: (message) {
         return Result.error(message);

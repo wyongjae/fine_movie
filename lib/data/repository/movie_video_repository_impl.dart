@@ -14,8 +14,6 @@ class MovieVideoRepositoryImpl
 
   @override
   Future<Result<List<Video>>> fetch(Param param) async {
-    //todo: 기본 설정이 KO로 되어 있어서 처리를 해줘야 함
-
     try {
       final response = await _movieDataSource.fetch(param);
 
@@ -23,7 +21,33 @@ class MovieVideoRepositoryImpl
       List jsonResult = jsonResponse['results'];
       List<Video> videos = jsonResult.map((e) => Video.fromJson(e)).toList();
 
+      final youtubeVideos = videos
+          .where((element) => element.site == 'YouTube' && element.official)
+          .toList();
+
+      if (youtubeVideos.isEmpty) {
+        return _fetchWithLanguage(param, 'en-US');
+      }
+
       return Result.success(videos);
+    } catch (e) {
+      return const Result.error('네트워크 에러');
+    }
+  }
+
+  Future<Result<List<Video>>> _fetchWithLanguage(
+      Param param, String language) async {
+    try {
+      final response = await _movieDataSource.fetch(param, language: language);
+
+      Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+      List jsonResult = jsonResponse['results'];
+      List<Video> videos = jsonResult.map((e) => Video.fromJson(e)).toList();
+
+      final youtubeVideos =
+          videos.where((element) => element.site == 'YouTube').toList();
+
+      return Result.success(youtubeVideos);
     } catch (e) {
       return const Result.error('네트워크 에러');
     }

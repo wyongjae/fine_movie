@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       body: state.isLoading
-          ? const CircularProgressIndicator()
+          ? const Center(child: CircularProgressIndicator())
           : CustomScrollView(
               slivers: [
                 SliverAppBar(
