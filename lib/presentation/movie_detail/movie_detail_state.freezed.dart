@@ -22,6 +22,7 @@ MovieDetailState _$MovieDetailStateFromJson(Map<String, dynamic> json) {
 mixin _$MovieDetailState {
   bool get isLoading => throw _privateConstructorUsedError;
   MovieDetail? get movieDetails => throw _privateConstructorUsedError;
+  List<Video> get videos => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,7 @@ abstract class $MovieDetailStateCopyWith<$Res> {
           MovieDetailState value, $Res Function(MovieDetailState) then) =
       _$MovieDetailStateCopyWithImpl<$Res, MovieDetailState>;
   @useResult
-  $Res call({bool isLoading, MovieDetail? movieDetails});
+  $Res call({bool isLoading, MovieDetail? movieDetails, List<Video> videos});
 
   $MovieDetailCopyWith<$Res>? get movieDetails;
 }
@@ -55,6 +56,7 @@ class _$MovieDetailStateCopyWithImpl<$Res, $Val extends MovieDetailState>
   $Res call({
     Object? isLoading = null,
     Object? movieDetails = freezed,
+    Object? videos = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -65,6 +67,10 @@ class _$MovieDetailStateCopyWithImpl<$Res, $Val extends MovieDetailState>
           ? _value.movieDetails
           : movieDetails // ignore: cast_nullable_to_non_nullable
               as MovieDetail?,
+      videos: null == videos
+          ? _value.videos
+          : videos // ignore: cast_nullable_to_non_nullable
+              as List<Video>,
     ) as $Val);
   }
 
@@ -89,7 +95,7 @@ abstract class _$$_MovieDetailStateCopyWith<$Res>
       __$$_MovieDetailStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading, MovieDetail? movieDetails});
+  $Res call({bool isLoading, MovieDetail? movieDetails, List<Video> videos});
 
   @override
   $MovieDetailCopyWith<$Res>? get movieDetails;
@@ -108,6 +114,7 @@ class __$$_MovieDetailStateCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = null,
     Object? movieDetails = freezed,
+    Object? videos = null,
   }) {
     return _then(_$_MovieDetailState(
       isLoading: null == isLoading
@@ -118,6 +125,10 @@ class __$$_MovieDetailStateCopyWithImpl<$Res>
           ? _value.movieDetails
           : movieDetails // ignore: cast_nullable_to_non_nullable
               as MovieDetail?,
+      videos: null == videos
+          ? _value._videos
+          : videos // ignore: cast_nullable_to_non_nullable
+              as List<Video>,
     ));
   }
 }
@@ -125,7 +136,11 @@ class __$$_MovieDetailStateCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_MovieDetailState implements _MovieDetailState {
-  const _$_MovieDetailState({this.isLoading = false, this.movieDetails = null});
+  const _$_MovieDetailState(
+      {this.isLoading = false,
+      this.movieDetails = null,
+      final List<Video> videos = const []})
+      : _videos = videos;
 
   factory _$_MovieDetailState.fromJson(Map<String, dynamic> json) =>
       _$$_MovieDetailStateFromJson(json);
@@ -136,10 +151,18 @@ class _$_MovieDetailState implements _MovieDetailState {
   @override
   @JsonKey()
   final MovieDetail? movieDetails;
+  final List<Video> _videos;
+  @override
+  @JsonKey()
+  List<Video> get videos {
+    if (_videos is EqualUnmodifiableListView) return _videos;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_videos);
+  }
 
   @override
   String toString() {
-    return 'MovieDetailState(isLoading: $isLoading, movieDetails: $movieDetails)';
+    return 'MovieDetailState(isLoading: $isLoading, movieDetails: $movieDetails, videos: $videos)';
   }
 
   @override
@@ -150,12 +173,14 @@ class _$_MovieDetailState implements _MovieDetailState {
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.movieDetails, movieDetails) ||
-                other.movieDetails == movieDetails));
+                other.movieDetails == movieDetails) &&
+            const DeepCollectionEquality().equals(other._videos, _videos));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, movieDetails);
+  int get hashCode => Object.hash(runtimeType, isLoading, movieDetails,
+      const DeepCollectionEquality().hash(_videos));
 
   @JsonKey(ignore: true)
   @override
@@ -174,7 +199,8 @@ class _$_MovieDetailState implements _MovieDetailState {
 abstract class _MovieDetailState implements MovieDetailState {
   const factory _MovieDetailState(
       {final bool isLoading,
-      final MovieDetail? movieDetails}) = _$_MovieDetailState;
+      final MovieDetail? movieDetails,
+      final List<Video> videos}) = _$_MovieDetailState;
 
   factory _MovieDetailState.fromJson(Map<String, dynamic> json) =
       _$_MovieDetailState.fromJson;
@@ -183,6 +209,8 @@ abstract class _MovieDetailState implements MovieDetailState {
   bool get isLoading;
   @override
   MovieDetail? get movieDetails;
+  @override
+  List<Video> get videos;
   @override
   @JsonKey(ignore: true)
   _$$_MovieDetailStateCopyWith<_$_MovieDetailState> get copyWith =>

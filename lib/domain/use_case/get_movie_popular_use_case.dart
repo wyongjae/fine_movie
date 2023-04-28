@@ -14,8 +14,8 @@ class GetMoviePopularUseCase implements UseCase<List<Movie>, Param> {
     final result = await _repository.fetch(param);
 
     return result.when(
-      success: (popularMovie) {
-        return Result.success(popularMovie);
+      success: (popularMovies) {
+        return Result.success(popularMovies);
       },
       error: (message) {
         return Result.error(message);

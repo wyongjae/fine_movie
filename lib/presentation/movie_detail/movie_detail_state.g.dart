@@ -12,10 +12,15 @@ _$_MovieDetailState _$$_MovieDetailStateFromJson(Map<String, dynamic> json) =>
       movieDetails: json['movieDetails'] == null
           ? null
           : MovieDetail.fromJson(json['movieDetails'] as Map<String, dynamic>),
+      videos: (json['videos'] as List<dynamic>?)
+              ?.map((e) => Video.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$_MovieDetailStateToJson(_$_MovieDetailState instance) =>
     <String, dynamic>{
       'isLoading': instance.isLoading,
       'movieDetails': instance.movieDetails,
+      'videos': instance.videos,
     };

@@ -3,9 +3,11 @@ import 'package:fine_movie/data/data_source/movie_data_source.dart';
 import 'package:fine_movie/data/repository/genre_data_repository_impl.dart';
 import 'package:fine_movie/data/repository/movie_data_repository_impl.dart';
 import 'package:fine_movie/data/repository/movie_detail_repository_impl.dart';
+import 'package:fine_movie/data/repository/movie_video_repository_impl.dart';
 import 'package:fine_movie/domain/model/genre/genre.dart';
 import 'package:fine_movie/domain/model/movie/movie.dart';
 import 'package:fine_movie/domain/model/movie_detail/movie_detail.dart';
+import 'package:fine_movie/domain/model/video/video.dart';
 import 'package:fine_movie/domain/repository/movie_data_repository.dart';
 import 'package:fine_movie/domain/use_case/get_genre_use_case.dart';
 import 'package:fine_movie/domain/use_case/get_movie_detail_use_case.dart';
@@ -13,6 +15,7 @@ import 'package:fine_movie/domain/use_case/get_movie_now_playing_use_case.dart';
 import 'package:fine_movie/domain/use_case/get_movie_popular_use_case.dart';
 import 'package:fine_movie/domain/use_case/get_movie_top_rated_use_case.dart';
 import 'package:fine_movie/domain/use_case/get_movie_upcoming_use_case.dart';
+import 'package:fine_movie/domain/use_case/get_movie_videos_use_case.dart';
 import 'package:fine_movie/domain/use_case/use_cases.dart';
 import 'package:fine_movie/presentation/home/home_screen_view_model.dart';
 import 'package:fine_movie/presentation/movie_detail/movie_detail_screen_view_model.dart';
@@ -33,6 +36,9 @@ void diSetup() {
   getIt.registerLazySingleton<MovieDataRepository<MovieDetail, Param>>(
       () => MovieDetailRepositoryImpl(getIt<MovieDataSource>()));
 
+  getIt.registerLazySingleton<MovieDataRepository<List<Video>, Param>>(
+      () => MovieVideoRepositoryImpl(getIt<MovieDataSource>()));
+
   /// UseCase di
   getIt.registerLazySingleton<UseCases>(
     () => UseCases(
@@ -48,6 +54,8 @@ void diSetup() {
           GetGenreUseCase(getIt<MovieDataRepository<List<Genre>, Param>>()),
       movieDetailUseCase: GetMovieDetailUseCase(
           getIt<MovieDataRepository<MovieDetail, Param>>()),
+      movieVideosUseCase: GetMovieVideosUseCase(
+          getIt<MovieDataRepository<List<Video>, Param>>()),
     ),
   );
 

@@ -1,21 +1,21 @@
 import 'package:fine_movie/core/param/param.dart';
-import 'package:fine_movie/domain/model/movie/movie.dart';
+import 'package:fine_movie/domain/model/video/video.dart';
 import 'package:fine_movie/domain/repository/movie_data_repository.dart';
 import 'package:fine_movie/domain/use_case/use_case.dart';
 import 'package:fine_movie/util/result/result.dart';
 
-class GetMovieTopRatedUseCase implements UseCase<List<Movie>, Param> {
-  final MovieDataRepository<List<Movie>, Param> _repository;
+class GetMovieVideosUseCase implements UseCase<List<Video>, Param> {
+  final MovieDataRepository<List<Video>, Param> _repository;
 
-  GetMovieTopRatedUseCase(this._repository);
+  GetMovieVideosUseCase(this._repository);
 
   @override
-  Future<Result<List<Movie>>> execute(Param param) async {
+  Future<Result<List<Video>>> execute(Param param) async {
     final result = await _repository.fetch(param);
 
     return result.when(
-      success: (topRatedMovies) {
-        return Result.success(topRatedMovies);
+      success: (videos) {
+        return Result.success(videos);
       },
       error: (message) {
         return Result.error(message);

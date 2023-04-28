@@ -44,7 +44,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                   SliverAppBar(
                     backgroundColor: Colors.black54,
                     elevation: 0.0,
-                    expandedHeight: MediaQuery.of(context).size.width * 0.6,
+                    expandedHeight: MediaQuery.of(context).size.width * 9 / 16,
                     flexibleSpace: FlexibleSpaceBar(
                       collapseMode: CollapseMode.pin,
                       background: Stack(
@@ -53,17 +53,16 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                           CachedNetworkImage(
                               fit: BoxFit.cover,
                               imageUrl: posterPath +
-                                  (widget.movie.posterPath ??
+                                  (widget.movie.backdropPath ??
                                       '/3bhkrj58Vtu7enYsRolD1fZdja1.jpg')),
-                          GestureDetector(
-                            onTap: () {
-                              //todo: 유튜브 연결
+                          IconButton(
+                            icon: const Icon(Icons.play_circle_fill),
+                            color: Colors.white,
+                            iconSize: 70,
+                            onPressed: () async {
+                              //todo 유튜브 화면 이동
+                              viewModel.callMovieVideo();
                             },
-                            child: const Icon(
-                              Icons.play_circle_outline_outlined,
-                              color: Colors.white70,
-                              size: 110,
-                            ),
                           ),
                         ],
                       ),
