@@ -18,6 +18,8 @@ class Param with _$Param {
   const factory Param.movieDetail(int movieId) = MovieDetailParam;
 
   const factory Param.movieVideo(int movieId) = MovieVideo;
+
+  const factory Param.movieCredits(int movieId) = MovieCredits;
 }
 
 String paramToUrl(Param param, String language) {
@@ -35,5 +37,7 @@ String paramToUrl(Param param, String language) {
         '$movieBaseUrl/$movieId?api_key=$myKey&language=$language',
     movieVideo: (int movieId) =>
         '$movieBaseUrl/$movieId/videos?api_key=$myKey&language=$language',
+    movieCredits: (int movieId) =>
+        '$movieBaseUrl/$movieId/credits?api_key=$myKey&language=$language',
   );
 }

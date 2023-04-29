@@ -1,15 +1,18 @@
 import 'package:fine_movie/core/param/param.dart';
 import 'package:fine_movie/data/data_source/movie_data_source.dart';
-import 'package:fine_movie/data/repository/movie_genre_repository_impl.dart';
+import 'package:fine_movie/data/repository/movie_credits_repository_impl.dart';
 import 'package:fine_movie/data/repository/movie_data_repository_impl.dart';
 import 'package:fine_movie/data/repository/movie_detail_repository_impl.dart';
+import 'package:fine_movie/data/repository/movie_genre_repository_impl.dart';
 import 'package:fine_movie/data/repository/movie_video_repository_impl.dart';
+import 'package:fine_movie/domain/model/credits/credits.dart';
 import 'package:fine_movie/domain/model/genre/genre.dart';
 import 'package:fine_movie/domain/model/movie/movie.dart';
 import 'package:fine_movie/domain/model/movie_detail/movie_detail.dart';
 import 'package:fine_movie/domain/model/video/video.dart';
 import 'package:fine_movie/domain/repository/movie_data_repository.dart';
-import 'package:fine_movie/domain/use_case/get_genre_use_case.dart';
+import 'package:fine_movie/domain/use_case/get_movie_credits_use_case.dart';
+import 'package:fine_movie/domain/use_case/get_movie_genre_use_case.dart';
 import 'package:fine_movie/domain/use_case/get_movie_detail_use_case.dart';
 import 'package:fine_movie/domain/use_case/get_movie_now_playing_use_case.dart';
 import 'package:fine_movie/domain/use_case/get_movie_popular_use_case.dart';
@@ -38,6 +41,8 @@ void diSetup() {
 
   getIt.registerLazySingleton<MovieDataRepository<List<Video>, Param>>(
       () => MovieVideoRepositoryImpl(getIt<MovieDataSource>()));
+  getIt.registerLazySingleton<MovieDataRepository<Credits, Param>>(
+      () => MovieCreditsRepositoryImpl(getIt<MovieDataSource>()));
 
   /// UseCase di
   getIt.registerLazySingleton<UseCases>(
@@ -51,11 +56,13 @@ void diSetup() {
       upcomingUseCase: GetMovieUpcomingUseCase(
           getIt<MovieDataRepository<List<Movie>, Param>>()),
       genreUseCase:
-          GetGenreUseCase(getIt<MovieDataRepository<List<Genre>, Param>>()),
+          GetMovieGenreUseCase(getIt<MovieDataRepository<List<Genre>, Param>>()),
       movieDetailUseCase: GetMovieDetailUseCase(
           getIt<MovieDataRepository<MovieDetail, Param>>()),
       movieVideosUseCase: GetMovieVideosUseCase(
           getIt<MovieDataRepository<List<Video>, Param>>()),
+      creditsUseCase:
+          GetMovieCreditsUseCase(getIt<MovieDataRepository<Credits, Param>>()),
     ),
   );
 

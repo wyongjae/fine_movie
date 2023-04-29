@@ -74,8 +74,10 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                       delegate: SliverChildListDelegate(
                         [
                           MovieDetailInfo(
-                              movie: widget.movie,
-                              movieDetail: state.movieDetails),
+                            movie: widget.movie,
+                            movieDetail: state.movieDetails,
+                            credits: state.credits,
+                          ),
                         ],
                       ),
                     ),

@@ -16,6 +16,9 @@ _$_MovieDetailState _$$_MovieDetailStateFromJson(Map<String, dynamic> json) =>
               ?.map((e) => Video.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      credits: json['credits'] == null
+          ? null
+          : Credits.fromJson(json['credits'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_MovieDetailStateToJson(_$_MovieDetailState instance) =>
@@ -23,4 +26,5 @@ Map<String, dynamic> _$$_MovieDetailStateToJson(_$_MovieDetailState instance) =>
       'isLoading': instance.isLoading,
       'movieDetails': instance.movieDetails,
       'videos': instance.videos,
+      'credits': instance.credits,
     };

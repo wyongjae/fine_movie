@@ -1,17 +1,18 @@
 import 'package:fine_movie/domain/model/movie/movie.dart';
 import 'package:fine_movie/presentation/component/movie_item.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class MovieList extends StatelessWidget {
   final String theme;
   final List<Movie> movies;
-  final Function(Movie movie)? onTap;
+  final Function(Movie movie)? onMovieTap;
 
   const MovieList({
     Key? key,
     required this.theme,
     required this.movies,
-    this.onTap,
+    this.onMovieTap,
   }) : super(key: key);
 
   @override
@@ -31,7 +32,9 @@ class MovieList extends StatelessWidget {
                   style: const TextStyle(fontSize: 17),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.push('/tap/home/movieMoreScreen');
+                  },
                   child: const Text(
                     '더보기 >',
                     style: TextStyle(fontSize: 15),
@@ -49,7 +52,7 @@ class MovieList extends StatelessWidget {
                   (index) {
                     return InkWell(
                       onTap: () {
-                        onTap?.call(movies[index]);
+                        onMovieTap?.call(movies[index]);
                       },
                       child: MovieItem(movie: movies[index]),
                     );

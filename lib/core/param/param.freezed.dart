@@ -25,6 +25,7 @@ mixin _$Param {
     required TResult Function() genres,
     required TResult Function(int movieId) movieDetail,
     required TResult Function(int movieId) movieVideo,
+    required TResult Function(int movieId) movieCredits,
   }) =>
       throw _privateConstructorUsedError;
 
@@ -37,6 +38,7 @@ mixin _$Param {
     TResult? Function()? genres,
     TResult? Function(int movieId)? movieDetail,
     TResult? Function(int movieId)? movieVideo,
+    TResult? Function(int movieId)? movieCredits,
   }) =>
       throw _privateConstructorUsedError;
 
@@ -49,6 +51,7 @@ mixin _$Param {
     TResult Function()? genres,
     TResult Function(int movieId)? movieDetail,
     TResult Function(int movieId)? movieVideo,
+    TResult Function(int movieId)? movieCredits,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +65,7 @@ mixin _$Param {
     required TResult Function(Genres value) genres,
     required TResult Function(MovieDetailParam value) movieDetail,
     required TResult Function(MovieVideo value) movieVideo,
+    required TResult Function(MovieCredits value) movieCredits,
   }) =>
       throw _privateConstructorUsedError;
 
@@ -74,6 +78,7 @@ mixin _$Param {
     TResult? Function(Genres value)? genres,
     TResult? Function(MovieDetailParam value)? movieDetail,
     TResult? Function(MovieVideo value)? movieVideo,
+    TResult? Function(MovieCredits value)? movieCredits,
   }) =>
       throw _privateConstructorUsedError;
 
@@ -86,6 +91,7 @@ mixin _$Param {
     TResult Function(Genres value)? genres,
     TResult Function(MovieDetailParam value)? movieDetail,
     TResult Function(MovieVideo value)? movieVideo,
+    TResult Function(MovieCredits value)? movieCredits,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -182,6 +188,7 @@ class _$MovieNowPlaying implements MovieNowPlaying {
     required TResult Function() genres,
     required TResult Function(int movieId) movieDetail,
     required TResult Function(int movieId) movieVideo,
+    required TResult Function(int movieId) movieCredits,
   }) {
     return movieNowPlaying(page);
   }
@@ -196,6 +203,7 @@ class _$MovieNowPlaying implements MovieNowPlaying {
     TResult? Function()? genres,
     TResult? Function(int movieId)? movieDetail,
     TResult? Function(int movieId)? movieVideo,
+    TResult? Function(int movieId)? movieCredits,
   }) {
     return movieNowPlaying?.call(page);
   }
@@ -210,6 +218,7 @@ class _$MovieNowPlaying implements MovieNowPlaying {
     TResult Function()? genres,
     TResult Function(int movieId)? movieDetail,
     TResult Function(int movieId)? movieVideo,
+    TResult Function(int movieId)? movieCredits,
     required TResult orElse(),
   }) {
     if (movieNowPlaying != null) {
@@ -228,6 +237,7 @@ class _$MovieNowPlaying implements MovieNowPlaying {
     required TResult Function(Genres value) genres,
     required TResult Function(MovieDetailParam value) movieDetail,
     required TResult Function(MovieVideo value) movieVideo,
+    required TResult Function(MovieCredits value) movieCredits,
   }) {
     return movieNowPlaying(this);
   }
@@ -242,6 +252,7 @@ class _$MovieNowPlaying implements MovieNowPlaying {
     TResult? Function(Genres value)? genres,
     TResult? Function(MovieDetailParam value)? movieDetail,
     TResult? Function(MovieVideo value)? movieVideo,
+    TResult? Function(MovieCredits value)? movieCredits,
   }) {
     return movieNowPlaying?.call(this);
   }
@@ -256,6 +267,7 @@ class _$MovieNowPlaying implements MovieNowPlaying {
     TResult Function(Genres value)? genres,
     TResult Function(MovieDetailParam value)? movieDetail,
     TResult Function(MovieVideo value)? movieVideo,
+    TResult Function(MovieCredits value)? movieCredits,
     required TResult orElse(),
   }) {
     if (movieNowPlaying != null) {
@@ -348,6 +360,7 @@ class _$MoviePopular implements MoviePopular {
     required TResult Function() genres,
     required TResult Function(int movieId) movieDetail,
     required TResult Function(int movieId) movieVideo,
+    required TResult Function(int movieId) movieCredits,
   }) {
     return moviePopular(page);
   }
@@ -362,6 +375,7 @@ class _$MoviePopular implements MoviePopular {
     TResult? Function()? genres,
     TResult? Function(int movieId)? movieDetail,
     TResult? Function(int movieId)? movieVideo,
+    TResult? Function(int movieId)? movieCredits,
   }) {
     return moviePopular?.call(page);
   }
@@ -376,6 +390,7 @@ class _$MoviePopular implements MoviePopular {
     TResult Function()? genres,
     TResult Function(int movieId)? movieDetail,
     TResult Function(int movieId)? movieVideo,
+    TResult Function(int movieId)? movieCredits,
     required TResult orElse(),
   }) {
     if (moviePopular != null) {
@@ -394,6 +409,7 @@ class _$MoviePopular implements MoviePopular {
     required TResult Function(Genres value) genres,
     required TResult Function(MovieDetailParam value) movieDetail,
     required TResult Function(MovieVideo value) movieVideo,
+    required TResult Function(MovieCredits value) movieCredits,
   }) {
     return moviePopular(this);
   }
@@ -408,6 +424,7 @@ class _$MoviePopular implements MoviePopular {
     TResult? Function(Genres value)? genres,
     TResult? Function(MovieDetailParam value)? movieDetail,
     TResult? Function(MovieVideo value)? movieVideo,
+    TResult? Function(MovieCredits value)? movieCredits,
   }) {
     return moviePopular?.call(this);
   }
@@ -422,6 +439,7 @@ class _$MoviePopular implements MoviePopular {
     TResult Function(Genres value)? genres,
     TResult Function(MovieDetailParam value)? movieDetail,
     TResult Function(MovieVideo value)? movieVideo,
+    TResult Function(MovieCredits value)? movieCredits,
     required TResult orElse(),
   }) {
     if (moviePopular != null) {
@@ -514,6 +532,7 @@ class _$MovieTopRated implements MovieTopRated {
     required TResult Function() genres,
     required TResult Function(int movieId) movieDetail,
     required TResult Function(int movieId) movieVideo,
+    required TResult Function(int movieId) movieCredits,
   }) {
     return movieTopRated(page);
   }
@@ -528,6 +547,7 @@ class _$MovieTopRated implements MovieTopRated {
     TResult? Function()? genres,
     TResult? Function(int movieId)? movieDetail,
     TResult? Function(int movieId)? movieVideo,
+    TResult? Function(int movieId)? movieCredits,
   }) {
     return movieTopRated?.call(page);
   }
@@ -542,6 +562,7 @@ class _$MovieTopRated implements MovieTopRated {
     TResult Function()? genres,
     TResult Function(int movieId)? movieDetail,
     TResult Function(int movieId)? movieVideo,
+    TResult Function(int movieId)? movieCredits,
     required TResult orElse(),
   }) {
     if (movieTopRated != null) {
@@ -560,6 +581,7 @@ class _$MovieTopRated implements MovieTopRated {
     required TResult Function(Genres value) genres,
     required TResult Function(MovieDetailParam value) movieDetail,
     required TResult Function(MovieVideo value) movieVideo,
+    required TResult Function(MovieCredits value) movieCredits,
   }) {
     return movieTopRated(this);
   }
@@ -574,6 +596,7 @@ class _$MovieTopRated implements MovieTopRated {
     TResult? Function(Genres value)? genres,
     TResult? Function(MovieDetailParam value)? movieDetail,
     TResult? Function(MovieVideo value)? movieVideo,
+    TResult? Function(MovieCredits value)? movieCredits,
   }) {
     return movieTopRated?.call(this);
   }
@@ -588,6 +611,7 @@ class _$MovieTopRated implements MovieTopRated {
     TResult Function(Genres value)? genres,
     TResult Function(MovieDetailParam value)? movieDetail,
     TResult Function(MovieVideo value)? movieVideo,
+    TResult Function(MovieCredits value)? movieCredits,
     required TResult orElse(),
   }) {
     if (movieTopRated != null) {
@@ -649,6 +673,7 @@ class _$Genres implements Genres {
     required TResult Function() genres,
     required TResult Function(int movieId) movieDetail,
     required TResult Function(int movieId) movieVideo,
+    required TResult Function(int movieId) movieCredits,
   }) {
     return genres();
   }
@@ -663,6 +688,7 @@ class _$Genres implements Genres {
     TResult? Function()? genres,
     TResult? Function(int movieId)? movieDetail,
     TResult? Function(int movieId)? movieVideo,
+    TResult? Function(int movieId)? movieCredits,
   }) {
     return genres?.call();
   }
@@ -677,6 +703,7 @@ class _$Genres implements Genres {
     TResult Function()? genres,
     TResult Function(int movieId)? movieDetail,
     TResult Function(int movieId)? movieVideo,
+    TResult Function(int movieId)? movieCredits,
     required TResult orElse(),
   }) {
     if (genres != null) {
@@ -695,6 +722,7 @@ class _$Genres implements Genres {
     required TResult Function(Genres value) genres,
     required TResult Function(MovieDetailParam value) movieDetail,
     required TResult Function(MovieVideo value) movieVideo,
+    required TResult Function(MovieCredits value) movieCredits,
   }) {
     return genres(this);
   }
@@ -709,6 +737,7 @@ class _$Genres implements Genres {
     TResult? Function(Genres value)? genres,
     TResult? Function(MovieDetailParam value)? movieDetail,
     TResult? Function(MovieVideo value)? movieVideo,
+    TResult? Function(MovieCredits value)? movieCredits,
   }) {
     return genres?.call(this);
   }
@@ -723,6 +752,7 @@ class _$Genres implements Genres {
     TResult Function(Genres value)? genres,
     TResult Function(MovieDetailParam value)? movieDetail,
     TResult Function(MovieVideo value)? movieVideo,
+    TResult Function(MovieCredits value)? movieCredits,
     required TResult orElse(),
   }) {
     if (genres != null) {
@@ -808,6 +838,7 @@ class _$MovieDetailParam implements MovieDetailParam {
     required TResult Function() genres,
     required TResult Function(int movieId) movieDetail,
     required TResult Function(int movieId) movieVideo,
+    required TResult Function(int movieId) movieCredits,
   }) {
     return movieDetail(movieId);
   }
@@ -822,6 +853,7 @@ class _$MovieDetailParam implements MovieDetailParam {
     TResult? Function()? genres,
     TResult? Function(int movieId)? movieDetail,
     TResult? Function(int movieId)? movieVideo,
+    TResult? Function(int movieId)? movieCredits,
   }) {
     return movieDetail?.call(movieId);
   }
@@ -836,6 +868,7 @@ class _$MovieDetailParam implements MovieDetailParam {
     TResult Function()? genres,
     TResult Function(int movieId)? movieDetail,
     TResult Function(int movieId)? movieVideo,
+    TResult Function(int movieId)? movieCredits,
     required TResult orElse(),
   }) {
     if (movieDetail != null) {
@@ -854,6 +887,7 @@ class _$MovieDetailParam implements MovieDetailParam {
     required TResult Function(Genres value) genres,
     required TResult Function(MovieDetailParam value) movieDetail,
     required TResult Function(MovieVideo value) movieVideo,
+    required TResult Function(MovieCredits value) movieCredits,
   }) {
     return movieDetail(this);
   }
@@ -868,6 +902,7 @@ class _$MovieDetailParam implements MovieDetailParam {
     TResult? Function(Genres value)? genres,
     TResult? Function(MovieDetailParam value)? movieDetail,
     TResult? Function(MovieVideo value)? movieVideo,
+    TResult? Function(MovieCredits value)? movieCredits,
   }) {
     return movieDetail?.call(this);
   }
@@ -882,6 +917,7 @@ class _$MovieDetailParam implements MovieDetailParam {
     TResult Function(Genres value)? genres,
     TResult Function(MovieDetailParam value)? movieDetail,
     TResult Function(MovieVideo value)? movieVideo,
+    TResult Function(MovieCredits value)? movieCredits,
     required TResult orElse(),
   }) {
     if (movieDetail != null) {
@@ -973,6 +1009,7 @@ class _$MovieVideo implements MovieVideo {
     required TResult Function() genres,
     required TResult Function(int movieId) movieDetail,
     required TResult Function(int movieId) movieVideo,
+    required TResult Function(int movieId) movieCredits,
   }) {
     return movieVideo(movieId);
   }
@@ -987,6 +1024,7 @@ class _$MovieVideo implements MovieVideo {
     TResult? Function()? genres,
     TResult? Function(int movieId)? movieDetail,
     TResult? Function(int movieId)? movieVideo,
+    TResult? Function(int movieId)? movieCredits,
   }) {
     return movieVideo?.call(movieId);
   }
@@ -1001,6 +1039,7 @@ class _$MovieVideo implements MovieVideo {
     TResult Function()? genres,
     TResult Function(int movieId)? movieDetail,
     TResult Function(int movieId)? movieVideo,
+    TResult Function(int movieId)? movieCredits,
     required TResult orElse(),
   }) {
     if (movieVideo != null) {
@@ -1019,6 +1058,7 @@ class _$MovieVideo implements MovieVideo {
     required TResult Function(Genres value) genres,
     required TResult Function(MovieDetailParam value) movieDetail,
     required TResult Function(MovieVideo value) movieVideo,
+    required TResult Function(MovieCredits value) movieCredits,
   }) {
     return movieVideo(this);
   }
@@ -1033,6 +1073,7 @@ class _$MovieVideo implements MovieVideo {
     TResult? Function(Genres value)? genres,
     TResult? Function(MovieDetailParam value)? movieDetail,
     TResult? Function(MovieVideo value)? movieVideo,
+    TResult? Function(MovieCredits value)? movieCredits,
   }) {
     return movieVideo?.call(this);
   }
@@ -1047,6 +1088,7 @@ class _$MovieVideo implements MovieVideo {
     TResult Function(Genres value)? genres,
     TResult Function(MovieDetailParam value)? movieDetail,
     TResult Function(MovieVideo value)? movieVideo,
+    TResult Function(MovieCredits value)? movieCredits,
     required TResult orElse(),
   }) {
     if (movieVideo != null) {
@@ -1063,5 +1105,176 @@ abstract class MovieVideo implements Param {
 
   @JsonKey(ignore: true)
   _$$MovieVideoCopyWith<_$MovieVideo> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MovieCreditsCopyWith<$Res> {
+  factory _$$MovieCreditsCopyWith(
+          _$MovieCredits value, $Res Function(_$MovieCredits) then) =
+      __$$MovieCreditsCopyWithImpl<$Res>;
+
+  @useResult
+  $Res call({int movieId});
+}
+
+/// @nodoc
+class __$$MovieCreditsCopyWithImpl<$Res>
+    extends _$ParamCopyWithImpl<$Res, _$MovieCredits>
+    implements _$$MovieCreditsCopyWith<$Res> {
+  __$$MovieCreditsCopyWithImpl(
+      _$MovieCredits _value, $Res Function(_$MovieCredits) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? movieId = null,
+  }) {
+    return _then(_$MovieCredits(
+      null == movieId
+          ? _value.movieId
+          : movieId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MovieCredits implements MovieCredits {
+  const _$MovieCredits(this.movieId);
+
+  @override
+  final int movieId;
+
+  @override
+  String toString() {
+    return 'Param.movieCredits(movieId: $movieId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MovieCredits &&
+            (identical(other.movieId, movieId) || other.movieId == movieId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, movieId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MovieCreditsCopyWith<_$MovieCredits> get copyWith =>
+      __$$MovieCreditsCopyWithImpl<_$MovieCredits>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int page) movieNowPlaying,
+    required TResult Function(int page) moviePopular,
+    required TResult Function(int page) movieUpcoming,
+    required TResult Function(int page) movieTopRated,
+    required TResult Function() genres,
+    required TResult Function(int movieId) movieDetail,
+    required TResult Function(int movieId) movieVideo,
+    required TResult Function(int movieId) movieCredits,
+  }) {
+    return movieCredits(movieId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int page)? movieNowPlaying,
+    TResult? Function(int page)? moviePopular,
+    TResult? Function(int page)? movieUpcoming,
+    TResult? Function(int page)? movieTopRated,
+    TResult? Function()? genres,
+    TResult? Function(int movieId)? movieDetail,
+    TResult? Function(int movieId)? movieVideo,
+    TResult? Function(int movieId)? movieCredits,
+  }) {
+    return movieCredits?.call(movieId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int page)? movieNowPlaying,
+    TResult Function(int page)? moviePopular,
+    TResult Function(int page)? movieUpcoming,
+    TResult Function(int page)? movieTopRated,
+    TResult Function()? genres,
+    TResult Function(int movieId)? movieDetail,
+    TResult Function(int movieId)? movieVideo,
+    TResult Function(int movieId)? movieCredits,
+    required TResult orElse(),
+  }) {
+    if (movieCredits != null) {
+      return movieCredits(movieId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(MovieNowPlaying value) movieNowPlaying,
+    required TResult Function(MoviePopular value) moviePopular,
+    required TResult Function(MoviePopular value) movieUpcoming,
+    required TResult Function(MovieTopRated value) movieTopRated,
+    required TResult Function(Genres value) genres,
+    required TResult Function(MovieDetailParam value) movieDetail,
+    required TResult Function(MovieVideo value) movieVideo,
+    required TResult Function(MovieCredits value) movieCredits,
+  }) {
+    return movieCredits(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(MovieNowPlaying value)? movieNowPlaying,
+    TResult? Function(MoviePopular value)? moviePopular,
+    TResult? Function(MoviePopular value)? movieUpcoming,
+    TResult? Function(MovieTopRated value)? movieTopRated,
+    TResult? Function(Genres value)? genres,
+    TResult? Function(MovieDetailParam value)? movieDetail,
+    TResult? Function(MovieVideo value)? movieVideo,
+    TResult? Function(MovieCredits value)? movieCredits,
+  }) {
+    return movieCredits?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(MovieNowPlaying value)? movieNowPlaying,
+    TResult Function(MoviePopular value)? moviePopular,
+    TResult Function(MoviePopular value)? movieUpcoming,
+    TResult Function(MovieTopRated value)? movieTopRated,
+    TResult Function(Genres value)? genres,
+    TResult Function(MovieDetailParam value)? movieDetail,
+    TResult Function(MovieVideo value)? movieVideo,
+    TResult Function(MovieCredits value)? movieCredits,
+    required TResult orElse(),
+  }) {
+    if (movieCredits != null) {
+      return movieCredits(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MovieCredits implements Param {
+  const factory MovieCredits(final int movieId) = _$MovieCredits;
+
+  int get movieId;
+
+  @JsonKey(ignore: true)
+  _$$MovieCreditsCopyWith<_$MovieCredits> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,19 +1,26 @@
+import 'package:fine_movie/domain/model/credits/credits.dart';
 import 'package:fine_movie/domain/model/movie/movie.dart';
 import 'package:fine_movie/domain/model/movie_detail/movie_detail.dart';
+import 'package:fine_movie/presentation/movie_detail/movie_detail_screen_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MovieDetailInfo extends StatelessWidget {
   final Movie movie;
   final MovieDetail? movieDetail;
+  final Credits? credits;
 
   const MovieDetailInfo({
     Key? key,
     required this.movie,
     required this.movieDetail,
+    required this.credits,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = context.watch<MovieDetailScreenViewModel>();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -45,18 +52,18 @@ class MovieDetailInfo extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         Text(
-          '원제 : ${movie.originalTitle}',
+          '원제: ${movie.originalTitle}',
           style: const TextStyle(fontSize: 16),
         ),
         const SizedBox(height: 5),
         Text(
-          '감독 : 감독 이름',
+          '감독: ${viewModel.director}',
           style: const TextStyle(fontSize: 16),
         ),
         const SizedBox(height: 5),
         Text(
-          '출연 : 배우 이름',
           style: const TextStyle(fontSize: 16),
+          '출연: ${viewModel.cast}',
         ),
         const SizedBox(height: 10),
         Text(

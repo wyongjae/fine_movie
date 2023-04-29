@@ -4,6 +4,7 @@ import 'package:fine_movie/presentation/home/home_screen.dart';
 import 'package:fine_movie/presentation/home/home_screen_view_model.dart';
 import 'package:fine_movie/presentation/movie_detail/movie_detail_screen.dart';
 import 'package:fine_movie/presentation/movie_detail/movie_detail_screen_view_model.dart';
+import 'package:fine_movie/presentation/movie_more/movie_more_screen.dart';
 import 'package:fine_movie/presentation/my/my_screen.dart';
 import 'package:fine_movie/presentation/tap_screen.dart';
 import 'package:fine_movie/presentation/vod/vod_screen.dart';
@@ -32,6 +33,11 @@ final router = GoRouter(
                       create: (_) => getIt<MovieDetailScreenViewModel>(),
                       child: MovieDetailScreen(movie: movie),
                     );
+                  }),
+              GoRoute(
+                  path: 'movieMoreScreen',
+                  builder: (context, state) {
+                    return const MovieMoreScreen();
                   }),
             ],
           ),

@@ -85,21 +85,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     MovieList(
                       theme: '이번 주 인기작 TOP 10',
                       movies: state.topRatedMovie,
-                      onTap: (movie) {
+                      onMovieTap: (movie) {
                         context.push('/tap/home/detailScreen', extra: movie);
                       },
                     ),
                     MovieList(
                       theme: '현재 상영 중인 작품들',
                       movies: state.nowPlayingMovie,
-                      onTap: (movie) {
+                      onMovieTap: (movie) {
                         context.push('/tap/home/detailScreen', extra: movie);
                       },
                     ),
                     MovieList(
                       theme: '대중에게 인기있는 영화',
                       movies: state.popularMovie,
-                      onTap: (movie) {
+                      onMovieTap: (movie) {
                         context.push('/tap/home/detailScreen', extra: movie);
                       },
                     ),

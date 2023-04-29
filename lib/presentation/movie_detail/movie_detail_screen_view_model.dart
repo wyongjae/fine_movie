@@ -13,6 +13,13 @@ class MovieDetailScreenViewModel with ChangeNotifier {
 
   MovieDetailState get state => _state;
 
+  String? get cast => state.credits?.cast.take(2).map((e) => e.name).join(', ');
+
+  String? get director => state.credits?.crew
+      .where((element) => element.job == 'Director')
+      .first
+      .name;
+
   MovieDetailScreenViewModel(this._useCases, this.movieId);
 
   Future<void> fetch() async {
@@ -21,6 +28,7 @@ class MovieDetailScreenViewModel with ChangeNotifier {
 
     await _getMovieDetail(movieId);
     await _getVideos(movieId);
+    await _getCredits(movieId);
 
     _state = state.copyWith(isLoading: false);
     notifyListeners();
@@ -56,6 +64,18 @@ class MovieDetailScreenViewModel with ChangeNotifier {
     result.when(
       success: (videos) {
         _state = state.copyWith(videos: videos);
+      },
+      error: (message) {},
+    );
+  }
+
+  Future<void> _getCredits(int movieId) async {
+    final result =
+        await _useCases.creditsUseCase.execute(Param.movieCredits(movieId));
+
+    result.when(
+      success: (credits) {
+        _state = state.copyWith(credits: credits);
       },
       error: (message) {},
     );
