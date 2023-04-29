@@ -37,7 +37,9 @@ final router = GoRouter(
               GoRoute(
                   path: 'movieMoreScreen',
                   builder: (context, state) {
-                    return const MovieMoreScreen();
+                    List<Movie> movies = state.extra as List<Movie>;
+
+                    return MovieMoreScreen(movies: movies);
                   }),
             ],
           ),

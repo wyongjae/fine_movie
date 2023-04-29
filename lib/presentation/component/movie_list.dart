@@ -33,7 +33,7 @@ class MovieList extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    context.push('/tap/home/movieMoreScreen');
+                    context.push('/tap/home/movieMoreScreen', extra: movies);
                   },
                   child: const Text(
                     '더보기 >',
@@ -54,7 +54,9 @@ class MovieList extends StatelessWidget {
                       onTap: () {
                         onMovieTap?.call(movies[index]);
                       },
-                      child: MovieItem(movie: movies[index]),
+                      child: Padding(
+                          padding: const EdgeInsets.all(4),
+                          child: MovieItem(movie: movies[index])),
                     );
                   },
                 )

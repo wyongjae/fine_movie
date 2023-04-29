@@ -13,36 +13,30 @@ class MovieItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(4),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 150,
-            height: 200,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: CachedNetworkImage(
-              imageUrl: posterPath + (movie.posterPath ?? ''),
-              fit: BoxFit.cover,
-              errorWidget: (context, url, error) => const Icon(Icons.error),
-            ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: 150,
+          height: 200,
+          child: CachedNetworkImage(
+            imageUrl: posterPath + (movie.posterPath ?? ''),
+            fit: BoxFit.cover,
+            errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
-          const SizedBox(height: 6),
-          SizedBox(
-            width: 150,
-            child: Text(
-              movie.title,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontSize: 16),
-              textAlign: TextAlign.start,
-            ),
+        ),
+        const SizedBox(height: 6),
+        SizedBox(
+          width: 150,
+          child: Text(
+            movie.title,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(fontSize: 16),
+            textAlign: TextAlign.start,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
