@@ -2,9 +2,11 @@ import 'package:fine_movie/di/di_setup.dart';
 import 'package:fine_movie/domain/model/movie/movie.dart';
 import 'package:fine_movie/presentation/home/home_screen.dart';
 import 'package:fine_movie/presentation/home/home_screen_view_model.dart';
-import 'package:fine_movie/presentation/movie_detail/movie_detail_screen.dart';
-import 'package:fine_movie/presentation/movie_detail/movie_detail_screen_view_model.dart';
-import 'package:fine_movie/presentation/movie_more/movie_more_screen.dart';
+import 'package:fine_movie/presentation/home/movie_detail/movie_detail_screen.dart';
+import 'package:fine_movie/presentation/home/movie_detail/movie_detail_screen_view_model.dart';
+import 'package:fine_movie/presentation/home/movie_more/movie_more_screen.dart';
+import 'package:fine_movie/presentation/home/movie_search/movie_search_screen.dart';
+import 'package:fine_movie/presentation/home/movie_search/movie_search_screen_view_model.dart';
 import 'package:fine_movie/presentation/my/my_screen.dart';
 import 'package:fine_movie/presentation/tap_screen.dart';
 import 'package:fine_movie/presentation/vod/vod_screen.dart';
@@ -41,6 +43,14 @@ final router = GoRouter(
 
                     return MovieMoreScreen(movies: movies);
                   }),
+              GoRoute(
+                  path: 'movieSearchScreen',
+                  builder: (context, state) {
+                    return ChangeNotifierProvider(
+                      create: (_) => getIt<MovieSearchScreenViewModel>(),
+                      child: const MovieSearchScreen(),
+                    );
+                  })
             ],
           ),
           GoRoute(path: 'vod', builder: (context, state) => const VodScreen()),

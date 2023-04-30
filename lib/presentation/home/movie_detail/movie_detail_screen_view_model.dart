@@ -1,6 +1,6 @@
 import 'package:fine_movie/core/param/param.dart';
 import 'package:fine_movie/domain/use_case/use_cases.dart';
-import 'package:fine_movie/presentation/movie_detail/movie_detail_state.dart';
+import 'package:fine_movie/presentation/home/movie_detail/movie_detail_state.dart';
 import 'package:fine_movie/util/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';

@@ -1,7 +1,7 @@
 import 'package:fine_movie/domain/model/credits/credits.dart';
 import 'package:fine_movie/domain/model/movie/movie.dart';
 import 'package:fine_movie/domain/model/movie_detail/movie_detail.dart';
-import 'package:fine_movie/presentation/movie_detail/movie_detail_screen_view_model.dart';
+import 'package:fine_movie/presentation/home/movie_detail/movie_detail_screen_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -36,7 +36,7 @@ class MovieDetailInfo extends StatelessWidget {
               style: const TextStyle(fontSize: 15),
             ),
             const Text('· 12세 관람가 ', style: TextStyle(fontSize: 15)),
-            Text('· ${movieDetail?.runtime} 분' ?? '',
+            Text('· ${movieDetail?.runtime} 분',
                 style: const TextStyle(fontSize: 15)),
           ],
         ),
@@ -67,7 +67,7 @@ class MovieDetailInfo extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         Text(
-          movie.overview ?? '',
+          movie.overview,
           style: const TextStyle(fontSize: 16),
         ),
       ],

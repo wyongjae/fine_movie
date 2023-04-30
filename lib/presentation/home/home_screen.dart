@@ -22,7 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       body: state.isLoading
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(
+              child: CircularProgressIndicator(color: Colors.black38))
           : CustomScrollView(
               slivers: [
                 SliverAppBar(
@@ -41,7 +42,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   actions: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context.push('/tap/home/movieSearchScreen');
+                      },
                       icon: const Icon(Icons.search_sharp),
                     )
                   ],

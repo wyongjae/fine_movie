@@ -23,7 +23,7 @@ class MovieList extends StatelessWidget {
         children: [
           const SizedBox(height: 8),
           Padding(
-            padding: const EdgeInsets.only(left: 6.0, right: 6.0),
+            padding: const EdgeInsets.all(6),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -31,13 +31,15 @@ class MovieList extends StatelessWidget {
                   theme,
                   style: const TextStyle(fontSize: 17),
                 ),
-                TextButton(
-                  onPressed: () {
+                InkWell(
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () {
                     context.push('/tap/home/movieMoreScreen', extra: movies);
                   },
                   child: const Text(
                     '더보기 >',
-                    style: TextStyle(fontSize: 15),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                 ),
               ],

@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fine_movie/domain/model/movie/movie.dart';
-import 'package:fine_movie/presentation/movie_detail/component/movie_detail_info.dart';
-import 'package:fine_movie/presentation/movie_detail/movie_detail_screen_view_model.dart';
+import 'package:fine_movie/presentation/home/movie_detail/component/movie_detail_info.dart';
+import 'package:fine_movie/presentation/home/movie_detail/movie_detail_screen_view_model.dart';
 import 'package:fine_movie/util/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -37,7 +37,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
 
     return Scaffold(
       body: state.isLoading
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator(color: Colors.black38))
           : SafeArea(
               child: CustomScrollView(
                 slivers: [

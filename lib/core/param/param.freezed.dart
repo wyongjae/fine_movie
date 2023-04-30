@@ -26,9 +26,9 @@ mixin _$Param {
     required TResult Function(int movieId) movieDetail,
     required TResult Function(int movieId) movieVideo,
     required TResult Function(int movieId) movieCredits,
+    required TResult Function(String query, int page) movieWithQuery,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int page)? movieNowPlaying,
@@ -39,9 +39,9 @@ mixin _$Param {
     TResult? Function(int movieId)? movieDetail,
     TResult? Function(int movieId)? movieVideo,
     TResult? Function(int movieId)? movieCredits,
+    TResult? Function(String query, int page)? movieWithQuery,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int page)? movieNowPlaying,
@@ -52,10 +52,10 @@ mixin _$Param {
     TResult Function(int movieId)? movieDetail,
     TResult Function(int movieId)? movieVideo,
     TResult Function(int movieId)? movieCredits,
+    TResult Function(String query, int page)? movieWithQuery,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(MovieNowPlaying value) movieNowPlaying,
@@ -66,9 +66,9 @@ mixin _$Param {
     required TResult Function(MovieDetailParam value) movieDetail,
     required TResult Function(MovieVideo value) movieVideo,
     required TResult Function(MovieCredits value) movieCredits,
+    required TResult Function(MovieWithQuery value) movieWithQuery,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MovieNowPlaying value)? movieNowPlaying,
@@ -79,9 +79,9 @@ mixin _$Param {
     TResult? Function(MovieDetailParam value)? movieDetail,
     TResult? Function(MovieVideo value)? movieVideo,
     TResult? Function(MovieCredits value)? movieCredits,
+    TResult? Function(MovieWithQuery value)? movieWithQuery,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MovieNowPlaying value)? movieNowPlaying,
@@ -92,6 +92,7 @@ mixin _$Param {
     TResult Function(MovieDetailParam value)? movieDetail,
     TResult Function(MovieVideo value)? movieVideo,
     TResult Function(MovieCredits value)? movieCredits,
+    TResult Function(MovieWithQuery value)? movieWithQuery,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -110,7 +111,6 @@ class _$ParamCopyWithImpl<$Res, $Val extends Param>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 }
@@ -120,7 +120,6 @@ abstract class _$$MovieNowPlayingCopyWith<$Res> {
   factory _$$MovieNowPlayingCopyWith(
           _$MovieNowPlaying value, $Res Function(_$MovieNowPlaying) then) =
       __$$MovieNowPlayingCopyWithImpl<$Res>;
-
   @useResult
   $Res call({int page});
 }
@@ -189,6 +188,7 @@ class _$MovieNowPlaying implements MovieNowPlaying {
     required TResult Function(int movieId) movieDetail,
     required TResult Function(int movieId) movieVideo,
     required TResult Function(int movieId) movieCredits,
+    required TResult Function(String query, int page) movieWithQuery,
   }) {
     return movieNowPlaying(page);
   }
@@ -204,6 +204,7 @@ class _$MovieNowPlaying implements MovieNowPlaying {
     TResult? Function(int movieId)? movieDetail,
     TResult? Function(int movieId)? movieVideo,
     TResult? Function(int movieId)? movieCredits,
+    TResult? Function(String query, int page)? movieWithQuery,
   }) {
     return movieNowPlaying?.call(page);
   }
@@ -219,6 +220,7 @@ class _$MovieNowPlaying implements MovieNowPlaying {
     TResult Function(int movieId)? movieDetail,
     TResult Function(int movieId)? movieVideo,
     TResult Function(int movieId)? movieCredits,
+    TResult Function(String query, int page)? movieWithQuery,
     required TResult orElse(),
   }) {
     if (movieNowPlaying != null) {
@@ -238,6 +240,7 @@ class _$MovieNowPlaying implements MovieNowPlaying {
     required TResult Function(MovieDetailParam value) movieDetail,
     required TResult Function(MovieVideo value) movieVideo,
     required TResult Function(MovieCredits value) movieCredits,
+    required TResult Function(MovieWithQuery value) movieWithQuery,
   }) {
     return movieNowPlaying(this);
   }
@@ -253,6 +256,7 @@ class _$MovieNowPlaying implements MovieNowPlaying {
     TResult? Function(MovieDetailParam value)? movieDetail,
     TResult? Function(MovieVideo value)? movieVideo,
     TResult? Function(MovieCredits value)? movieCredits,
+    TResult? Function(MovieWithQuery value)? movieWithQuery,
   }) {
     return movieNowPlaying?.call(this);
   }
@@ -268,6 +272,7 @@ class _$MovieNowPlaying implements MovieNowPlaying {
     TResult Function(MovieDetailParam value)? movieDetail,
     TResult Function(MovieVideo value)? movieVideo,
     TResult Function(MovieCredits value)? movieCredits,
+    TResult Function(MovieWithQuery value)? movieWithQuery,
     required TResult orElse(),
   }) {
     if (movieNowPlaying != null) {
@@ -281,7 +286,6 @@ abstract class MovieNowPlaying implements Param {
   const factory MovieNowPlaying({final int page}) = _$MovieNowPlaying;
 
   int get page;
-
   @JsonKey(ignore: true)
   _$$MovieNowPlayingCopyWith<_$MovieNowPlaying> get copyWith =>
       throw _privateConstructorUsedError;
@@ -292,7 +296,6 @@ abstract class _$$MoviePopularCopyWith<$Res> {
   factory _$$MoviePopularCopyWith(
           _$MoviePopular value, $Res Function(_$MoviePopular) then) =
       __$$MoviePopularCopyWithImpl<$Res>;
-
   @useResult
   $Res call({int page});
 }
@@ -361,6 +364,7 @@ class _$MoviePopular implements MoviePopular {
     required TResult Function(int movieId) movieDetail,
     required TResult Function(int movieId) movieVideo,
     required TResult Function(int movieId) movieCredits,
+    required TResult Function(String query, int page) movieWithQuery,
   }) {
     return moviePopular(page);
   }
@@ -376,6 +380,7 @@ class _$MoviePopular implements MoviePopular {
     TResult? Function(int movieId)? movieDetail,
     TResult? Function(int movieId)? movieVideo,
     TResult? Function(int movieId)? movieCredits,
+    TResult? Function(String query, int page)? movieWithQuery,
   }) {
     return moviePopular?.call(page);
   }
@@ -391,6 +396,7 @@ class _$MoviePopular implements MoviePopular {
     TResult Function(int movieId)? movieDetail,
     TResult Function(int movieId)? movieVideo,
     TResult Function(int movieId)? movieCredits,
+    TResult Function(String query, int page)? movieWithQuery,
     required TResult orElse(),
   }) {
     if (moviePopular != null) {
@@ -410,6 +416,7 @@ class _$MoviePopular implements MoviePopular {
     required TResult Function(MovieDetailParam value) movieDetail,
     required TResult Function(MovieVideo value) movieVideo,
     required TResult Function(MovieCredits value) movieCredits,
+    required TResult Function(MovieWithQuery value) movieWithQuery,
   }) {
     return moviePopular(this);
   }
@@ -425,6 +432,7 @@ class _$MoviePopular implements MoviePopular {
     TResult? Function(MovieDetailParam value)? movieDetail,
     TResult? Function(MovieVideo value)? movieVideo,
     TResult? Function(MovieCredits value)? movieCredits,
+    TResult? Function(MovieWithQuery value)? movieWithQuery,
   }) {
     return moviePopular?.call(this);
   }
@@ -440,6 +448,7 @@ class _$MoviePopular implements MoviePopular {
     TResult Function(MovieDetailParam value)? movieDetail,
     TResult Function(MovieVideo value)? movieVideo,
     TResult Function(MovieCredits value)? movieCredits,
+    TResult Function(MovieWithQuery value)? movieWithQuery,
     required TResult orElse(),
   }) {
     if (moviePopular != null) {
@@ -453,7 +462,6 @@ abstract class MoviePopular implements Param {
   const factory MoviePopular({final int page}) = _$MoviePopular;
 
   int get page;
-
   @JsonKey(ignore: true)
   _$$MoviePopularCopyWith<_$MoviePopular> get copyWith =>
       throw _privateConstructorUsedError;
@@ -464,7 +472,6 @@ abstract class _$$MovieTopRatedCopyWith<$Res> {
   factory _$$MovieTopRatedCopyWith(
           _$MovieTopRated value, $Res Function(_$MovieTopRated) then) =
       __$$MovieTopRatedCopyWithImpl<$Res>;
-
   @useResult
   $Res call({int page});
 }
@@ -533,6 +540,7 @@ class _$MovieTopRated implements MovieTopRated {
     required TResult Function(int movieId) movieDetail,
     required TResult Function(int movieId) movieVideo,
     required TResult Function(int movieId) movieCredits,
+    required TResult Function(String query, int page) movieWithQuery,
   }) {
     return movieTopRated(page);
   }
@@ -548,6 +556,7 @@ class _$MovieTopRated implements MovieTopRated {
     TResult? Function(int movieId)? movieDetail,
     TResult? Function(int movieId)? movieVideo,
     TResult? Function(int movieId)? movieCredits,
+    TResult? Function(String query, int page)? movieWithQuery,
   }) {
     return movieTopRated?.call(page);
   }
@@ -563,6 +572,7 @@ class _$MovieTopRated implements MovieTopRated {
     TResult Function(int movieId)? movieDetail,
     TResult Function(int movieId)? movieVideo,
     TResult Function(int movieId)? movieCredits,
+    TResult Function(String query, int page)? movieWithQuery,
     required TResult orElse(),
   }) {
     if (movieTopRated != null) {
@@ -582,6 +592,7 @@ class _$MovieTopRated implements MovieTopRated {
     required TResult Function(MovieDetailParam value) movieDetail,
     required TResult Function(MovieVideo value) movieVideo,
     required TResult Function(MovieCredits value) movieCredits,
+    required TResult Function(MovieWithQuery value) movieWithQuery,
   }) {
     return movieTopRated(this);
   }
@@ -597,6 +608,7 @@ class _$MovieTopRated implements MovieTopRated {
     TResult? Function(MovieDetailParam value)? movieDetail,
     TResult? Function(MovieVideo value)? movieVideo,
     TResult? Function(MovieCredits value)? movieCredits,
+    TResult? Function(MovieWithQuery value)? movieWithQuery,
   }) {
     return movieTopRated?.call(this);
   }
@@ -612,6 +624,7 @@ class _$MovieTopRated implements MovieTopRated {
     TResult Function(MovieDetailParam value)? movieDetail,
     TResult Function(MovieVideo value)? movieVideo,
     TResult Function(MovieCredits value)? movieCredits,
+    TResult Function(MovieWithQuery value)? movieWithQuery,
     required TResult orElse(),
   }) {
     if (movieTopRated != null) {
@@ -625,7 +638,6 @@ abstract class MovieTopRated implements Param {
   const factory MovieTopRated({final int page}) = _$MovieTopRated;
 
   int get page;
-
   @JsonKey(ignore: true)
   _$$MovieTopRatedCopyWith<_$MovieTopRated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -674,6 +686,7 @@ class _$Genres implements Genres {
     required TResult Function(int movieId) movieDetail,
     required TResult Function(int movieId) movieVideo,
     required TResult Function(int movieId) movieCredits,
+    required TResult Function(String query, int page) movieWithQuery,
   }) {
     return genres();
   }
@@ -689,6 +702,7 @@ class _$Genres implements Genres {
     TResult? Function(int movieId)? movieDetail,
     TResult? Function(int movieId)? movieVideo,
     TResult? Function(int movieId)? movieCredits,
+    TResult? Function(String query, int page)? movieWithQuery,
   }) {
     return genres?.call();
   }
@@ -704,6 +718,7 @@ class _$Genres implements Genres {
     TResult Function(int movieId)? movieDetail,
     TResult Function(int movieId)? movieVideo,
     TResult Function(int movieId)? movieCredits,
+    TResult Function(String query, int page)? movieWithQuery,
     required TResult orElse(),
   }) {
     if (genres != null) {
@@ -723,6 +738,7 @@ class _$Genres implements Genres {
     required TResult Function(MovieDetailParam value) movieDetail,
     required TResult Function(MovieVideo value) movieVideo,
     required TResult Function(MovieCredits value) movieCredits,
+    required TResult Function(MovieWithQuery value) movieWithQuery,
   }) {
     return genres(this);
   }
@@ -738,6 +754,7 @@ class _$Genres implements Genres {
     TResult? Function(MovieDetailParam value)? movieDetail,
     TResult? Function(MovieVideo value)? movieVideo,
     TResult? Function(MovieCredits value)? movieCredits,
+    TResult? Function(MovieWithQuery value)? movieWithQuery,
   }) {
     return genres?.call(this);
   }
@@ -753,6 +770,7 @@ class _$Genres implements Genres {
     TResult Function(MovieDetailParam value)? movieDetail,
     TResult Function(MovieVideo value)? movieVideo,
     TResult Function(MovieCredits value)? movieCredits,
+    TResult Function(MovieWithQuery value)? movieWithQuery,
     required TResult orElse(),
   }) {
     if (genres != null) {
@@ -771,7 +789,6 @@ abstract class _$$MovieDetailParamCopyWith<$Res> {
   factory _$$MovieDetailParamCopyWith(
           _$MovieDetailParam value, $Res Function(_$MovieDetailParam) then) =
       __$$MovieDetailParamCopyWithImpl<$Res>;
-
   @useResult
   $Res call({int movieId});
 }
@@ -839,6 +856,7 @@ class _$MovieDetailParam implements MovieDetailParam {
     required TResult Function(int movieId) movieDetail,
     required TResult Function(int movieId) movieVideo,
     required TResult Function(int movieId) movieCredits,
+    required TResult Function(String query, int page) movieWithQuery,
   }) {
     return movieDetail(movieId);
   }
@@ -854,6 +872,7 @@ class _$MovieDetailParam implements MovieDetailParam {
     TResult? Function(int movieId)? movieDetail,
     TResult? Function(int movieId)? movieVideo,
     TResult? Function(int movieId)? movieCredits,
+    TResult? Function(String query, int page)? movieWithQuery,
   }) {
     return movieDetail?.call(movieId);
   }
@@ -869,6 +888,7 @@ class _$MovieDetailParam implements MovieDetailParam {
     TResult Function(int movieId)? movieDetail,
     TResult Function(int movieId)? movieVideo,
     TResult Function(int movieId)? movieCredits,
+    TResult Function(String query, int page)? movieWithQuery,
     required TResult orElse(),
   }) {
     if (movieDetail != null) {
@@ -888,6 +908,7 @@ class _$MovieDetailParam implements MovieDetailParam {
     required TResult Function(MovieDetailParam value) movieDetail,
     required TResult Function(MovieVideo value) movieVideo,
     required TResult Function(MovieCredits value) movieCredits,
+    required TResult Function(MovieWithQuery value) movieWithQuery,
   }) {
     return movieDetail(this);
   }
@@ -903,6 +924,7 @@ class _$MovieDetailParam implements MovieDetailParam {
     TResult? Function(MovieDetailParam value)? movieDetail,
     TResult? Function(MovieVideo value)? movieVideo,
     TResult? Function(MovieCredits value)? movieCredits,
+    TResult? Function(MovieWithQuery value)? movieWithQuery,
   }) {
     return movieDetail?.call(this);
   }
@@ -918,6 +940,7 @@ class _$MovieDetailParam implements MovieDetailParam {
     TResult Function(MovieDetailParam value)? movieDetail,
     TResult Function(MovieVideo value)? movieVideo,
     TResult Function(MovieCredits value)? movieCredits,
+    TResult Function(MovieWithQuery value)? movieWithQuery,
     required TResult orElse(),
   }) {
     if (movieDetail != null) {
@@ -931,7 +954,6 @@ abstract class MovieDetailParam implements Param {
   const factory MovieDetailParam(final int movieId) = _$MovieDetailParam;
 
   int get movieId;
-
   @JsonKey(ignore: true)
   _$$MovieDetailParamCopyWith<_$MovieDetailParam> get copyWith =>
       throw _privateConstructorUsedError;
@@ -942,7 +964,6 @@ abstract class _$$MovieVideoCopyWith<$Res> {
   factory _$$MovieVideoCopyWith(
           _$MovieVideo value, $Res Function(_$MovieVideo) then) =
       __$$MovieVideoCopyWithImpl<$Res>;
-
   @useResult
   $Res call({int movieId});
 }
@@ -1010,6 +1031,7 @@ class _$MovieVideo implements MovieVideo {
     required TResult Function(int movieId) movieDetail,
     required TResult Function(int movieId) movieVideo,
     required TResult Function(int movieId) movieCredits,
+    required TResult Function(String query, int page) movieWithQuery,
   }) {
     return movieVideo(movieId);
   }
@@ -1025,6 +1047,7 @@ class _$MovieVideo implements MovieVideo {
     TResult? Function(int movieId)? movieDetail,
     TResult? Function(int movieId)? movieVideo,
     TResult? Function(int movieId)? movieCredits,
+    TResult? Function(String query, int page)? movieWithQuery,
   }) {
     return movieVideo?.call(movieId);
   }
@@ -1040,6 +1063,7 @@ class _$MovieVideo implements MovieVideo {
     TResult Function(int movieId)? movieDetail,
     TResult Function(int movieId)? movieVideo,
     TResult Function(int movieId)? movieCredits,
+    TResult Function(String query, int page)? movieWithQuery,
     required TResult orElse(),
   }) {
     if (movieVideo != null) {
@@ -1059,6 +1083,7 @@ class _$MovieVideo implements MovieVideo {
     required TResult Function(MovieDetailParam value) movieDetail,
     required TResult Function(MovieVideo value) movieVideo,
     required TResult Function(MovieCredits value) movieCredits,
+    required TResult Function(MovieWithQuery value) movieWithQuery,
   }) {
     return movieVideo(this);
   }
@@ -1074,6 +1099,7 @@ class _$MovieVideo implements MovieVideo {
     TResult? Function(MovieDetailParam value)? movieDetail,
     TResult? Function(MovieVideo value)? movieVideo,
     TResult? Function(MovieCredits value)? movieCredits,
+    TResult? Function(MovieWithQuery value)? movieWithQuery,
   }) {
     return movieVideo?.call(this);
   }
@@ -1089,6 +1115,7 @@ class _$MovieVideo implements MovieVideo {
     TResult Function(MovieDetailParam value)? movieDetail,
     TResult Function(MovieVideo value)? movieVideo,
     TResult Function(MovieCredits value)? movieCredits,
+    TResult Function(MovieWithQuery value)? movieWithQuery,
     required TResult orElse(),
   }) {
     if (movieVideo != null) {
@@ -1102,7 +1129,6 @@ abstract class MovieVideo implements Param {
   const factory MovieVideo(final int movieId) = _$MovieVideo;
 
   int get movieId;
-
   @JsonKey(ignore: true)
   _$$MovieVideoCopyWith<_$MovieVideo> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1113,7 +1139,6 @@ abstract class _$$MovieCreditsCopyWith<$Res> {
   factory _$$MovieCreditsCopyWith(
           _$MovieCredits value, $Res Function(_$MovieCredits) then) =
       __$$MovieCreditsCopyWithImpl<$Res>;
-
   @useResult
   $Res call({int movieId});
 }
@@ -1181,6 +1206,7 @@ class _$MovieCredits implements MovieCredits {
     required TResult Function(int movieId) movieDetail,
     required TResult Function(int movieId) movieVideo,
     required TResult Function(int movieId) movieCredits,
+    required TResult Function(String query, int page) movieWithQuery,
   }) {
     return movieCredits(movieId);
   }
@@ -1196,6 +1222,7 @@ class _$MovieCredits implements MovieCredits {
     TResult? Function(int movieId)? movieDetail,
     TResult? Function(int movieId)? movieVideo,
     TResult? Function(int movieId)? movieCredits,
+    TResult? Function(String query, int page)? movieWithQuery,
   }) {
     return movieCredits?.call(movieId);
   }
@@ -1211,6 +1238,7 @@ class _$MovieCredits implements MovieCredits {
     TResult Function(int movieId)? movieDetail,
     TResult Function(int movieId)? movieVideo,
     TResult Function(int movieId)? movieCredits,
+    TResult Function(String query, int page)? movieWithQuery,
     required TResult orElse(),
   }) {
     if (movieCredits != null) {
@@ -1230,6 +1258,7 @@ class _$MovieCredits implements MovieCredits {
     required TResult Function(MovieDetailParam value) movieDetail,
     required TResult Function(MovieVideo value) movieVideo,
     required TResult Function(MovieCredits value) movieCredits,
+    required TResult Function(MovieWithQuery value) movieWithQuery,
   }) {
     return movieCredits(this);
   }
@@ -1245,6 +1274,7 @@ class _$MovieCredits implements MovieCredits {
     TResult? Function(MovieDetailParam value)? movieDetail,
     TResult? Function(MovieVideo value)? movieVideo,
     TResult? Function(MovieCredits value)? movieCredits,
+    TResult? Function(MovieWithQuery value)? movieWithQuery,
   }) {
     return movieCredits?.call(this);
   }
@@ -1260,6 +1290,7 @@ class _$MovieCredits implements MovieCredits {
     TResult Function(MovieDetailParam value)? movieDetail,
     TResult Function(MovieVideo value)? movieVideo,
     TResult Function(MovieCredits value)? movieCredits,
+    TResult Function(MovieWithQuery value)? movieWithQuery,
     required TResult orElse(),
   }) {
     if (movieCredits != null) {
@@ -1273,8 +1304,193 @@ abstract class MovieCredits implements Param {
   const factory MovieCredits(final int movieId) = _$MovieCredits;
 
   int get movieId;
-
   @JsonKey(ignore: true)
   _$$MovieCreditsCopyWith<_$MovieCredits> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MovieWithQueryCopyWith<$Res> {
+  factory _$$MovieWithQueryCopyWith(
+          _$MovieWithQuery value, $Res Function(_$MovieWithQuery) then) =
+      __$$MovieWithQueryCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String query, int page});
+}
+
+/// @nodoc
+class __$$MovieWithQueryCopyWithImpl<$Res>
+    extends _$ParamCopyWithImpl<$Res, _$MovieWithQuery>
+    implements _$$MovieWithQueryCopyWith<$Res> {
+  __$$MovieWithQueryCopyWithImpl(
+      _$MovieWithQuery _value, $Res Function(_$MovieWithQuery) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? query = null,
+    Object? page = null,
+  }) {
+    return _then(_$MovieWithQuery(
+      null == query
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MovieWithQuery implements MovieWithQuery {
+  const _$MovieWithQuery(this.query, {this.page = 1});
+
+  @override
+  final String query;
+  @override
+  @JsonKey()
+  final int page;
+
+  @override
+  String toString() {
+    return 'Param.movieWithQuery(query: $query, page: $page)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MovieWithQuery &&
+            (identical(other.query, query) || other.query == query) &&
+            (identical(other.page, page) || other.page == page));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, query, page);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MovieWithQueryCopyWith<_$MovieWithQuery> get copyWith =>
+      __$$MovieWithQueryCopyWithImpl<_$MovieWithQuery>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int page) movieNowPlaying,
+    required TResult Function(int page) moviePopular,
+    required TResult Function(int page) movieUpcoming,
+    required TResult Function(int page) movieTopRated,
+    required TResult Function() genres,
+    required TResult Function(int movieId) movieDetail,
+    required TResult Function(int movieId) movieVideo,
+    required TResult Function(int movieId) movieCredits,
+    required TResult Function(String query, int page) movieWithQuery,
+  }) {
+    return movieWithQuery(query, page);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int page)? movieNowPlaying,
+    TResult? Function(int page)? moviePopular,
+    TResult? Function(int page)? movieUpcoming,
+    TResult? Function(int page)? movieTopRated,
+    TResult? Function()? genres,
+    TResult? Function(int movieId)? movieDetail,
+    TResult? Function(int movieId)? movieVideo,
+    TResult? Function(int movieId)? movieCredits,
+    TResult? Function(String query, int page)? movieWithQuery,
+  }) {
+    return movieWithQuery?.call(query, page);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int page)? movieNowPlaying,
+    TResult Function(int page)? moviePopular,
+    TResult Function(int page)? movieUpcoming,
+    TResult Function(int page)? movieTopRated,
+    TResult Function()? genres,
+    TResult Function(int movieId)? movieDetail,
+    TResult Function(int movieId)? movieVideo,
+    TResult Function(int movieId)? movieCredits,
+    TResult Function(String query, int page)? movieWithQuery,
+    required TResult orElse(),
+  }) {
+    if (movieWithQuery != null) {
+      return movieWithQuery(query, page);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(MovieNowPlaying value) movieNowPlaying,
+    required TResult Function(MoviePopular value) moviePopular,
+    required TResult Function(MoviePopular value) movieUpcoming,
+    required TResult Function(MovieTopRated value) movieTopRated,
+    required TResult Function(Genres value) genres,
+    required TResult Function(MovieDetailParam value) movieDetail,
+    required TResult Function(MovieVideo value) movieVideo,
+    required TResult Function(MovieCredits value) movieCredits,
+    required TResult Function(MovieWithQuery value) movieWithQuery,
+  }) {
+    return movieWithQuery(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(MovieNowPlaying value)? movieNowPlaying,
+    TResult? Function(MoviePopular value)? moviePopular,
+    TResult? Function(MoviePopular value)? movieUpcoming,
+    TResult? Function(MovieTopRated value)? movieTopRated,
+    TResult? Function(Genres value)? genres,
+    TResult? Function(MovieDetailParam value)? movieDetail,
+    TResult? Function(MovieVideo value)? movieVideo,
+    TResult? Function(MovieCredits value)? movieCredits,
+    TResult? Function(MovieWithQuery value)? movieWithQuery,
+  }) {
+    return movieWithQuery?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(MovieNowPlaying value)? movieNowPlaying,
+    TResult Function(MoviePopular value)? moviePopular,
+    TResult Function(MoviePopular value)? movieUpcoming,
+    TResult Function(MovieTopRated value)? movieTopRated,
+    TResult Function(Genres value)? genres,
+    TResult Function(MovieDetailParam value)? movieDetail,
+    TResult Function(MovieVideo value)? movieVideo,
+    TResult Function(MovieCredits value)? movieCredits,
+    TResult Function(MovieWithQuery value)? movieWithQuery,
+    required TResult orElse(),
+  }) {
+    if (movieWithQuery != null) {
+      return movieWithQuery(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MovieWithQuery implements Param {
+  const factory MovieWithQuery(final String query, {final int page}) =
+      _$MovieWithQuery;
+
+  String get query;
+  int get page;
+  @JsonKey(ignore: true)
+  _$$MovieWithQueryCopyWith<_$MovieWithQuery> get copyWith =>
       throw _privateConstructorUsedError;
 }

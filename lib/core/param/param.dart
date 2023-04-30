@@ -20,6 +20,9 @@ class Param with _$Param {
   const factory Param.movieVideo(int movieId) = MovieVideo;
 
   const factory Param.movieCredits(int movieId) = MovieCredits;
+
+  const factory Param.movieWithQuery(String query, {@Default(1) int page}) =
+      MovieWithQuery;
 }
 
 String paramToUrl(Param param, String language) {
@@ -39,5 +42,8 @@ String paramToUrl(Param param, String language) {
         '$movieBaseUrl/$movieId/videos?api_key=$myKey&language=$language',
     movieCredits: (int movieId) =>
         '$movieBaseUrl/$movieId/credits?api_key=$myKey&language=$language',
+    movieWithQuery: (String query, int page) =>
+        '$baseUrl/search/movie?api_key=$myKey&language=$language&query=$query'
+        '&page=1&include_adult=false',
   );
 }

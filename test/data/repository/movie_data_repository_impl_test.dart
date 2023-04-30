@@ -1,6 +1,6 @@
 import 'package:fine_movie/core/param/param.dart';
 import 'package:fine_movie/data/data_source/movie_data_source.dart';
-import 'package:fine_movie/data/repository/movie_data_repository_impl.dart';
+import 'package:fine_movie/data/repository/movie/movie_data_repository_impl.dart';
 import 'package:fine_movie/domain/model/movie/movie.dart';
 import 'package:fine_movie/util/result/result.dart';
 import 'package:flutter_test/flutter_test.dart';
