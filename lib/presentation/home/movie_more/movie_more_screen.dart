@@ -22,18 +22,18 @@ class _MovieMoreScreenState extends State<MovieMoreScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          widget.movieList?.theme ?? 'MovieList의 theme을 받아오게 수정',
+          style: const TextStyle(fontSize: 24),
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(8.0, 12.0, 8.0, 8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                //todo: 수정 필요
-
-                widget.movieList?.theme ?? 'MovieList의 theme을 받아오게 수정',
-                style: const TextStyle(fontSize: 24),
-              ),
               const SizedBox(
                 height: 10,
               ),

@@ -23,7 +23,7 @@ import 'package:fine_movie/domain/use_case/get_movie_with_query_use_case.dart';
 import 'package:fine_movie/domain/use_case/use_cases.dart';
 import 'package:fine_movie/presentation/home/home_screen_view_model.dart';
 import 'package:fine_movie/presentation/home/movie_detail/movie_detail_screen_view_model.dart';
-import 'package:fine_movie/presentation/home/movie_search/movie_search_screen_view_model.dart';
+import 'package:fine_movie/presentation/search/movie_search_screen_view_model.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;

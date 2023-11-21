@@ -29,19 +29,24 @@ class MovieList extends StatelessWidget {
               children: [
                 Text(
                   theme,
-                  style: const TextStyle(fontSize: 17),
+                  style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
                 InkWell(
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
                   onTap: () {
                     context.push('/tap/home/movieMoreScreen', extra: movies);
                   },
-                  child: const Text(
-                    '더보기 >',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(
+                      Icons.arrow_forward_ios_outlined,
+                      size: 16,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
+                )
               ],
             ),
           ),

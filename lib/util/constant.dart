@@ -5,4 +5,4 @@ const String movieBaseUrl = 'https://api.themoviedb.org/3/movie';
 const String posterPath = 'https://image.tmdb.org/t/p/w500';
 const String youtubeUrl = 'https://www.youtube.com/watch?v=';
 
-const String myKey = '9e4305db0fbbbd0bfed63f531773bd30';
+const String myKey = '6f2048655a1d3d0e029b510ddd2639ad';

@@ -22,8 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       body: state.isLoading
-          ? const Center(
-              child: CircularProgressIndicator(color: Colors.black38))
+          ? const Center(child: CircularProgressIndicator(color: Colors.white))
           : CustomScrollView(
               slivers: [
                 SliverAppBar(
@@ -40,14 +39,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontSize: 25,
                         fontWeight: FontWeight.w500),
                   ),
-                  actions: [
-                    IconButton(
-                      onPressed: () {
-                        context.push('/tap/home/movieSearchScreen');
-                      },
-                      icon: const Icon(Icons.search_sharp),
-                    )
-                  ],
                   expandedHeight:
                       MediaQuery.of(context).size.width * 750 / 1000,
                   flexibleSpace: FlexibleSpaceBar(
@@ -86,15 +77,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 SliverList(
                   delegate: SliverChildListDelegate([
                     MovieList(
-                      theme: '이번 주 인기작 TOP 10',
-                      movies: state.topRatedMovie,
+                      theme: '현재 상영 중인 작품들',
+                      movies: state.nowPlayingMovie,
                       onMovieTap: (movie) {
                         context.push('/tap/home/detailScreen', extra: movie);
                       },
                     ),
                     MovieList(
-                      theme: '현재 상영 중인 작품들',
-                      movies: state.nowPlayingMovie,
+                      theme: '이번 주 인기작 TOP 10',
+                      movies: state.topRatedMovie,
                       onMovieTap: (movie) {
                         context.push('/tap/home/detailScreen', extra: movie);
                       },

@@ -2,7 +2,8 @@ import 'package:fine_movie/di/di_setup.dart';
 import 'package:fine_movie/presentation/home/home_screen.dart';
 import 'package:fine_movie/presentation/home/home_screen_view_model.dart';
 import 'package:fine_movie/presentation/my/my_screen.dart';
-import 'package:fine_movie/presentation/vod/vod_screen.dart';
+import 'package:fine_movie/presentation/search/movie_search_screen.dart';
+import 'package:fine_movie/presentation/search/movie_search_screen_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,8 +19,13 @@ class _TapScreenState extends State<TapScreen> {
 
   final _pages = [
     ChangeNotifierProvider(
-        create: (_) => getIt<HomeScreenViewModel>(), child: const HomeScreen()),
-    const VodScreen(),
+      create: (_) => getIt<HomeScreenViewModel>(),
+      child: const HomeScreen(),
+    ),
+    ChangeNotifierProvider(
+      create: (_) => getIt<MovieSearchScreenViewModel>(),
+      child: const MovieSearchScreen(),
+    ),
     const MyScreen(),
   ];
 
@@ -28,7 +34,7 @@ class _TapScreenState extends State<TapScreen> {
     return Scaffold(
       body: _pages[_pageIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.black54,
+        backgroundColor: Colors.black,
         selectedLabelStyle: const TextStyle(color: Colors.white, fontSize: 15),
         unselectedLabelStyle: const TextStyle(color: Colors.grey, fontSize: 14),
         selectedItemColor: Colors.white,
@@ -41,9 +47,9 @@ class _TapScreenState extends State<TapScreen> {
           });
         },
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: '홈'),
-          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'VOD'),
-          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'MY'),
+          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'MY'),
         ],
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:fine_movie/core/param/param.dart';
 import 'package:fine_movie/domain/use_case/use_cases.dart';
-import 'package:fine_movie/presentation/home/movie_search/movie_search_state.dart';
+import 'package:fine_movie/presentation/search/movie_search_state.dart';
 import 'package:flutter/material.dart';
 
 class MovieSearchScreenViewModel with ChangeNotifier {
@@ -24,5 +24,7 @@ class MovieSearchScreenViewModel with ChangeNotifier {
     );
   }
 
-  void searchMovies(String query) {}
+  void searchMovies(String query) {
+
+  }
 }
