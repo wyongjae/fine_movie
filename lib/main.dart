@@ -21,6 +21,11 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
           color: Colors.grey[900],
         ),
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(color: Colors.white),
+          bodyMedium: TextStyle(color: Colors.white),
+          titleLarge: TextStyle(color: Colors.white),
+        ),
       ),
     );
   }
