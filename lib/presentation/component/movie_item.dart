@@ -16,13 +16,16 @@ class MovieItem extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          width: 150,
-          height: 200,
-          child: CachedNetworkImage(
-            imageUrl: posterPath + (movie.posterPath ?? ''),
-            fit: BoxFit.cover,
-            errorWidget: (context, url, error) => const Icon(Icons.error),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10.0),
+          child: SizedBox(
+            width: 150,
+            height: 180,
+            child: CachedNetworkImage(
+              imageUrl: posterPath + (movie.posterPath ?? ''),
+              fit: BoxFit.cover,
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+            ),
           ),
         ),
         const SizedBox(height: 6),
@@ -33,7 +36,7 @@ class MovieItem extends StatelessWidget {
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
-              fontSize: 16,
+              fontSize: 17,
               color: Colors.white,
             ),
             textAlign: TextAlign.start,

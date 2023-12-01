@@ -1,17 +1,16 @@
 import 'package:fine_movie/domain/model/movie/movie.dart';
 import 'package:fine_movie/presentation/component/movie_item.dart';
-import 'package:fine_movie/presentation/component/movie_list.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class MovieMoreScreen extends StatefulWidget {
   final List<Movie> movies;
-  final MovieList? movieList;
+  final String theme;
 
   const MovieMoreScreen({
     Key? key,
     required this.movies,
-    this.movieList,
+    required this.theme,
   }) : super(key: key);
 
   @override
@@ -24,13 +23,14 @@ class _MovieMoreScreenState extends State<MovieMoreScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          widget.movieList?.theme ?? 'MovieList의 theme을 받아오게 수정',
+          widget.theme,
           style: const TextStyle(fontSize: 24),
         ),
+        elevation: 0.0,
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(8.0, 12.0, 8.0, 8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -40,8 +40,10 @@ class _MovieMoreScreenState extends State<MovieMoreScreen> {
               Expanded(
                 child: GridView.builder(
                   itemCount: widget.movies.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3, childAspectRatio: 0.55),
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 150,
+                    childAspectRatio: 0.55,
+                  ),
                   itemBuilder: (BuildContext context, int index) {
                     final movie = widget.movies[index];
 
@@ -51,10 +53,11 @@ class _MovieMoreScreenState extends State<MovieMoreScreen> {
 
                         context.push('/tap/home/detailScreen', extra: movie);
                       },
-                      child: Card(
-                        color: Colors.grey,
-                        elevation: 0.0,
-                        child: MovieItem(movie: movie),
+                      child: Container(
+                        padding: const EdgeInsets.all(2),
+                        child: MovieItem(
+                          movie: movie,
+                        ),
                       ),
                     );
                   },

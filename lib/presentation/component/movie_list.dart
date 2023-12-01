@@ -24,21 +24,27 @@ class MovieList extends StatelessWidget {
           const SizedBox(height: 8),
           Padding(
             padding: const EdgeInsets.all(6),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  theme,
-                  style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white),
-                ),
-                InkWell(
-                  onTap: () {
-                    context.push('/tap/home/movieMoreScreen', extra: movies);
+            child: InkWell(
+              onTap: () {
+                context.push(
+                  '/tap/home/movieMoreScreen',
+                  extra: {
+                    'movies': movies,
+                    'theme': theme,
                   },
-                  child: const Padding(
+                );
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    theme,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Icon(
                       Icons.arrow_forward_ios_outlined,
@@ -46,8 +52,8 @@ class MovieList extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                )
-              ],
+                ],
+              ),
             ),
           ),
           SingleChildScrollView(
@@ -62,8 +68,11 @@ class MovieList extends StatelessWidget {
                         onMovieTap?.call(movies[index]);
                       },
                       child: Padding(
-                          padding: const EdgeInsets.all(4),
-                          child: MovieItem(movie: movies[index])),
+                        padding: const EdgeInsets.all(4),
+                        child: MovieItem(
+                          movie: movies[index],
+                        ),
+                      ),
                     );
                   },
                 )

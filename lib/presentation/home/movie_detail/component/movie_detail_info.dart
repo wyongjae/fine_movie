@@ -41,8 +41,8 @@ class MovieDetailInfo extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 10),
-        Row(
-          children: const [
+        const Row(
+          children: [
             Icon(Icons.star_border, size: 40),
             SizedBox(width: 15),
             Icon(Icons.share, size: 35),

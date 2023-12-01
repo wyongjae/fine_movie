@@ -32,12 +32,17 @@ final router = GoRouter(
                   );
                 }),
             GoRoute(
-                path: 'movieMoreScreen',
-                builder: (context, state) {
-                  List<Movie> movies = state.extra as List<Movie>;
+              path: 'movieMoreScreen',
+              builder: (context, state) {
+                Map<String, Object> data = state.extra as Map<String, Object>;
 
-                  return MovieMoreScreen(movies: movies);
-                }),
+                List<Movie> movies =
+                    (data['movies'] as List<Object>).cast<Movie>();
+                String theme = data['theme'] as String;
+
+                return MovieMoreScreen(movies: movies, theme: theme);
+              },
+            ),
           ],
         ),
         GoRoute(

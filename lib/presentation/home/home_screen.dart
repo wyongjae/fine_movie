@@ -16,6 +16,12 @@ class _HomeScreenState extends State<HomeScreen> {
   final PageController pageController = PageController();
 
   @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<HomeScreenViewModel>();
     final state = viewModel.state;
@@ -96,6 +102,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       onMovieTap: (movie) {
                         context.push('/tap/home/detailScreen', extra: movie);
                       },
+                    ),
+                    const SizedBox(
+                      height: 8,
                     ),
                   ]),
                 ),
