@@ -86,7 +86,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       theme: '현재 상영 중인 작품들',
                       movies: state.nowPlayingMovie,
                       onMovieTap: (movie) {
-                        context.push('/tap/home/detailScreen', extra: movie);
+                        context.push(
+                          '/tap/home/detailScreen',
+                          extra: movie,
+                        );
                       },
                     ),
                     MovieList(

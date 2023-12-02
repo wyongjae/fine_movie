@@ -11,6 +11,7 @@ part 'movie_detail_state.g.dart';
 class MovieDetailState with _$MovieDetailState {
   const factory MovieDetailState({
     @Default(false) bool isLoading,
+    @Default(false) bool isLiked,
     @Default(null) MovieDetail? movieDetails,
     @Default([]) List<Video> videos,
     @Default(null) Credits? credits,

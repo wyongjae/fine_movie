@@ -20,7 +20,21 @@ class MovieDetailScreenViewModel with ChangeNotifier {
       .first
       .name;
 
+  List likeMovies = [];
+
   MovieDetailScreenViewModel(this._useCases, this.movieId);
+
+  void likeMovie(int movieId, bool isLiked) {
+    _state = state.copyWith(isLiked: !isLiked);
+
+    if (isLiked) {
+      likeMovies.remove(movieId);
+    } else {
+      likeMovies.add(movieId);
+    }
+
+    notifyListeners();
+  }
 
   Future<void> fetch() async {
     _state = state.copyWith(isLoading: true);

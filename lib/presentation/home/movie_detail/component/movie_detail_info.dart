@@ -20,6 +20,9 @@ class MovieDetailInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<MovieDetailScreenViewModel>();
+    final state = viewModel.state;
+
+    bool isLiked = viewModel.likeMovies.contains(movie.id);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,21 +62,32 @@ class MovieDetailInfo extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 10),
-        const Row(
+        Row(
           children: [
-            Icon(
-              Icons.star_border,
-              size: 40,
-              color: Colors.white,
+            GestureDetector(
+              onTap: () {
+                viewModel.likeMovie(movie.id, state.isLiked);
+              },
+              child: isLiked
+                  ? const Icon(
+                      Icons.star,
+                      size: 40,
+                      color: Colors.yellow,
+                    )
+                  : const Icon(
+                      Icons.star_border,
+                      size: 40,
+                      color: Colors.white,
+                    ),
             ),
-            SizedBox(width: 15),
-            Icon(
+            const SizedBox(width: 15),
+            const Icon(
               Icons.share,
               size: 35,
               color: Colors.white,
             ),
-            SizedBox(width: 15),
-            Icon(
+            const SizedBox(width: 15),
+            const Icon(
               Icons.download_rounded,
               size: 40,
               color: Colors.white,

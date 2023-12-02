@@ -21,6 +21,7 @@ MovieDetailState _$MovieDetailStateFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MovieDetailState {
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isLiked => throw _privateConstructorUsedError;
   MovieDetail? get movieDetails => throw _privateConstructorUsedError;
   List<Video> get videos => throw _privateConstructorUsedError;
   Credits? get credits => throw _privateConstructorUsedError;
@@ -39,6 +40,7 @@ abstract class $MovieDetailStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isLoading,
+      bool isLiked,
       MovieDetail? movieDetails,
       List<Video> videos,
       Credits? credits});
@@ -61,6 +63,7 @@ class _$MovieDetailStateCopyWithImpl<$Res, $Val extends MovieDetailState>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? isLiked = null,
     Object? movieDetails = freezed,
     Object? videos = null,
     Object? credits = freezed,
@@ -69,6 +72,10 @@ class _$MovieDetailStateCopyWithImpl<$Res, $Val extends MovieDetailState>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLiked: null == isLiked
+          ? _value.isLiked
+          : isLiked // ignore: cast_nullable_to_non_nullable
               as bool,
       movieDetails: freezed == movieDetails
           ? _value.movieDetails
@@ -120,6 +127,7 @@ abstract class _$$_MovieDetailStateCopyWith<$Res>
   @useResult
   $Res call(
       {bool isLoading,
+      bool isLiked,
       MovieDetail? movieDetails,
       List<Video> videos,
       Credits? credits});
@@ -142,6 +150,7 @@ class __$$_MovieDetailStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? isLiked = null,
     Object? movieDetails = freezed,
     Object? videos = null,
     Object? credits = freezed,
@@ -150,6 +159,10 @@ class __$$_MovieDetailStateCopyWithImpl<$Res>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLiked: null == isLiked
+          ? _value.isLiked
+          : isLiked // ignore: cast_nullable_to_non_nullable
               as bool,
       movieDetails: freezed == movieDetails
           ? _value.movieDetails
@@ -172,6 +185,7 @@ class __$$_MovieDetailStateCopyWithImpl<$Res>
 class _$_MovieDetailState implements _MovieDetailState {
   const _$_MovieDetailState(
       {this.isLoading = false,
+      this.isLiked = false,
       this.movieDetails = null,
       final List<Video> videos = const [],
       this.credits = null})
@@ -183,6 +197,9 @@ class _$_MovieDetailState implements _MovieDetailState {
   @override
   @JsonKey()
   final bool isLoading;
+  @override
+  @JsonKey()
+  final bool isLiked;
   @override
   @JsonKey()
   final MovieDetail? movieDetails;
@@ -201,7 +218,7 @@ class _$_MovieDetailState implements _MovieDetailState {
 
   @override
   String toString() {
-    return 'MovieDetailState(isLoading: $isLoading, movieDetails: $movieDetails, videos: $videos, credits: $credits)';
+    return 'MovieDetailState(isLoading: $isLoading, isLiked: $isLiked, movieDetails: $movieDetails, videos: $videos, credits: $credits)';
   }
 
   @override
@@ -211,6 +228,7 @@ class _$_MovieDetailState implements _MovieDetailState {
             other is _$_MovieDetailState &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(other.isLiked, isLiked) || other.isLiked == isLiked) &&
             (identical(other.movieDetails, movieDetails) ||
                 other.movieDetails == movieDetails) &&
             const DeepCollectionEquality().equals(other._videos, _videos) &&
@@ -219,7 +237,7 @@ class _$_MovieDetailState implements _MovieDetailState {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, movieDetails,
+  int get hashCode => Object.hash(runtimeType, isLoading, isLiked, movieDetails,
       const DeepCollectionEquality().hash(_videos), credits);
 
   @JsonKey(ignore: true)
@@ -239,6 +257,7 @@ class _$_MovieDetailState implements _MovieDetailState {
 abstract class _MovieDetailState implements MovieDetailState {
   const factory _MovieDetailState(
       {final bool isLoading,
+      final bool isLiked,
       final MovieDetail? movieDetails,
       final List<Video> videos,
       final Credits? credits}) = _$_MovieDetailState;
@@ -248,6 +267,8 @@ abstract class _MovieDetailState implements MovieDetailState {
 
   @override
   bool get isLoading;
+  @override
+  bool get isLiked;
   @override
   MovieDetail? get movieDetails;
   @override
