@@ -2,12 +2,14 @@ import 'package:fine_movie/core/param/param.dart';
 import 'package:fine_movie/domain/use_case/use_cases.dart';
 import 'package:fine_movie/presentation/home/movie_detail/movie_detail_state.dart';
 import 'package:fine_movie/util/constant.dart';
+import 'package:fine_movie/util/shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MovieDetailScreenViewModel with ChangeNotifier {
   final UseCases _useCases;
   int movieId;
+  Future<bool>? isLiked;
 
   MovieDetailState _state = const MovieDetailState();
 
@@ -20,21 +22,7 @@ class MovieDetailScreenViewModel with ChangeNotifier {
       .first
       .name;
 
-  List likeMovies = [];
-
   MovieDetailScreenViewModel(this._useCases, this.movieId);
-
-  void likeMovie(int movieId, bool isLiked) {
-    _state = state.copyWith(isLiked: !isLiked);
-
-    if (isLiked) {
-      likeMovies.remove(movieId);
-    } else {
-      likeMovies.add(movieId);
-    }
-
-    notifyListeners();
-  }
 
   Future<void> fetch() async {
     _state = state.copyWith(isLoading: true);
@@ -43,9 +31,25 @@ class MovieDetailScreenViewModel with ChangeNotifier {
     await _getMovieDetail(movieId);
     await _getVideos(movieId);
     await _getCredits(movieId);
+    await refreshLikeStatus(movieId);
 
     _state = state.copyWith(isLoading: false);
     notifyListeners();
+  }
+
+  Future<void> refreshLikeStatus(int movieId) async {
+    final bool like = await SharedPreferencesService.getLikeStatus(movieId);
+    isLiked = Future.value(like);
+
+    notifyListeners();
+  }
+
+  Future<void> movieLike(int movieId) async {
+    if (isLiked != null) {
+      final bool currentLike = await isLiked!;
+      await SharedPreferencesService.setLikeStatus(movieId, !currentLike);
+      refreshLikeStatus(movieId);
+    }
   }
 
   Future<void> _getGenres() async {
@@ -96,11 +100,12 @@ class MovieDetailScreenViewModel with ChangeNotifier {
   }
 
   Future<void> callMovieVideo() async {
-    final Uri url = Uri.parse(
-        youtubeUrl + state.videos.take(1).map((e) => e.key).toString());
+    if (state.videos.isNotEmpty) {
+      final Uri url = Uri.parse(youtubeUrl + state.videos.first.key);
 
-    if (!await launchUrl(url)) {
-      throw Exception('Could not launch $url');
+      if (!await launchUrl(url)) {
+        throw Exception('Could not launch $url');
+      }
     }
   }
 }

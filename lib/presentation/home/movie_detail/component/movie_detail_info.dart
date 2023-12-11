@@ -5,7 +5,7 @@ import 'package:fine_movie/presentation/home/movie_detail/movie_detail_screen_vi
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class MovieDetailInfo extends StatelessWidget {
+class MovieDetailInfo extends StatefulWidget {
   final Movie movie;
   final MovieDetail? movieDetail;
   final Credits? credits;
@@ -18,17 +18,20 @@ class MovieDetailInfo extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<MovieDetailInfo> createState() => _MovieDetailInfoState();
+}
+
+class _MovieDetailInfoState extends State<MovieDetailInfo> {
+  @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<MovieDetailScreenViewModel>();
     final state = viewModel.state;
-
-    bool isLiked = viewModel.likeMovies.contains(movie.id);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          movie.title,
+          widget.movie.title,
           style: const TextStyle(
             fontSize: 26,
             fontWeight: FontWeight.w600,
@@ -39,7 +42,7 @@ class MovieDetailInfo extends StatelessWidget {
         Row(
           children: [
             Text(
-              '${movieDetail?.genres.take(2).map((e) => e.name).join(', ')} ',
+              '${widget.movieDetail?.genres.take(2).map((e) => e.name).join(', ')} ',
               style: const TextStyle(
                 fontSize: 15,
                 color: Colors.white,
@@ -53,7 +56,7 @@ class MovieDetailInfo extends StatelessWidget {
               ),
             ),
             Text(
-              '· ${movieDetail?.runtime} 분',
+              '· ${widget.movieDetail?.runtime} 분',
               style: const TextStyle(
                 fontSize: 15,
                 color: Colors.white,
@@ -66,19 +69,20 @@ class MovieDetailInfo extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-                viewModel.likeMovie(movie.id, state.isLiked);
+                viewModel.movieLike(widget.movie.id);
               },
-              child: isLiked
-                  ? const Icon(
-                      Icons.star,
-                      size: 40,
-                      color: Colors.yellow,
-                    )
-                  : const Icon(
-                      Icons.star_border,
-                      size: 40,
-                      color: Colors.white,
-                    ),
+              child: FutureBuilder<bool>(
+                future: viewModel.isLiked,
+                builder: (context, snapshot) {
+                  return snapshot.hasData
+                      ? Icon(
+                          snapshot.data! ? Icons.star : Icons.star_border,
+                          size: 40,
+                          color: snapshot.data! ? Colors.yellow : Colors.white,
+                        )
+                      : const CircularProgressIndicator();
+                },
+              ),
             ),
             const SizedBox(width: 15),
             const Icon(
@@ -96,7 +100,7 @@ class MovieDetailInfo extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         Text(
-          '원제: ${movie.originalTitle}',
+          '원제: ${widget.movie.originalTitle}',
           style: const TextStyle(
             fontSize: 16,
             color: Colors.white,
@@ -112,15 +116,15 @@ class MovieDetailInfo extends StatelessWidget {
         ),
         const SizedBox(height: 5),
         Text(
+          '출연: ${viewModel.cast}',
           style: const TextStyle(
             fontSize: 16,
             color: Colors.white,
           ),
-          '출연: ${viewModel.cast}',
         ),
         const SizedBox(height: 10),
         Text(
-          movie.overview,
+          widget.movie.overview,
           style: const TextStyle(
             fontSize: 18,
             color: Colors.white,
