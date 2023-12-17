@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   leading: const SizedBox(),
                   leadingWidth: 0,
                   title: const Text(
-                    'Fine Movie',
+                    'Jay Movie',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 25,

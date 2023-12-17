@@ -22,15 +22,16 @@ final router = GoRouter(
           builder: (context, state) => const HomeScreen(),
           routes: [
             GoRoute(
-                path: 'detailScreen',
-                builder: (context, state) {
-                  Movie movie = state.extra as Movie;
+              path: 'detailScreen',
+              builder: (context, state) {
+                Movie movie = state.extra as Movie;
 
-                  return ChangeNotifierProvider(
-                    create: (_) => getIt<MovieDetailScreenViewModel>(),
-                    child: MovieDetailScreen(movie: movie),
-                  );
-                }),
+                return ChangeNotifierProvider(
+                  create: (_) => getIt<MovieDetailScreenViewModel>(),
+                  child: MovieDetailScreen(movie: movie),
+                );
+              },
+            ),
             GoRoute(
               path: 'movieMoreScreen',
               builder: (context, state) {
@@ -46,8 +47,9 @@ final router = GoRouter(
           ],
         ),
         GoRoute(
-            path: 'movieSearchScreen',
-            builder: (context, state) => const MovieSearchScreen()),
+          path: 'movieSearchScreen',
+          builder: (context, state) => const MovieSearchScreen(),
+        ),
         GoRoute(
           path: 'my',
           builder: (context, state) => const MyScreen(),

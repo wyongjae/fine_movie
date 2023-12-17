@@ -48,6 +48,11 @@ class MovieDetailScreenViewModel with ChangeNotifier {
     if (isLiked != null) {
       final bool currentLike = await isLiked!;
       await SharedPreferencesService.setLikeStatus(movieId, !currentLike);
+      if (!currentLike) {
+        await SharedPreferencesService.addLikedMovieId(movieId);
+      } else {
+        await SharedPreferencesService.removeLikedMovieId(movieId);
+      }
       refreshLikeStatus(movieId);
     }
   }

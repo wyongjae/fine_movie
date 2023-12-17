@@ -1,4 +1,6 @@
+import 'package:fine_movie/presentation/my/my_screen_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MyScreen extends StatefulWidget {
   const MyScreen({Key? key}) : super(key: key);
@@ -13,6 +15,9 @@ class _MyScreenState extends State<MyScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = context.watch<MyScreenViewModel>();
+    final state = viewModel.state;
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -132,11 +137,10 @@ class _MyScreenState extends State<MyScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  buildTabButton("내 영화", 0),
+                  buildTabButton("관심", 0),
                   buildTabButton("다운로드", 1),
-                  buildTabButton("관심", 2),
-                  buildTabButton("쿠폰함", 3),
-                  buildTabButton("구입내역", 4),
+                  buildTabButton("쿠폰함", 2),
+                  buildTabButton("구입내역", 3),
                 ],
               ),
               const Divider(
@@ -153,7 +157,7 @@ class _MyScreenState extends State<MyScreen> {
                   },
                   itemCount: 5,
                   itemBuilder: (context, index) {
-                    return _buildPage(index);
+                    return _buildPage(index, viewModel);
                   },
                 ),
               ),
@@ -200,12 +204,12 @@ class _MyScreenState extends State<MyScreen> {
     );
   }
 
-  Widget _buildPage(int index) {
+  Widget _buildPage(int index, MyScreenViewModel viewModel) {
     switch (index) {
       case 0:
         return const Center(
           child: Text(
-            '내 영화 화면',
+            '관심 화면',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -213,6 +217,7 @@ class _MyScreenState extends State<MyScreen> {
             ),
           ),
         );
+
       case 1:
         return const Center(
           child: Text(
@@ -227,17 +232,6 @@ class _MyScreenState extends State<MyScreen> {
       case 2:
         return const Center(
           child: Text(
-            '관심 화면',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
-        );
-      case 3:
-        return const Center(
-          child: Text(
             '쿠폰함 화면',
             style: TextStyle(
               fontSize: 20,
@@ -246,7 +240,7 @@ class _MyScreenState extends State<MyScreen> {
             ),
           ),
         );
-      case 4:
+      case 3:
         return const Center(
           child: Text(
             '구입내역 화면',

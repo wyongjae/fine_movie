@@ -29,6 +29,7 @@ mixin _$Param {
     required TResult Function(String query, int page) movieWithQuery,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int page)? movieNowPlaying,
@@ -42,6 +43,7 @@ mixin _$Param {
     TResult? Function(String query, int page)? movieWithQuery,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int page)? movieNowPlaying,
@@ -56,6 +58,7 @@ mixin _$Param {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(MovieNowPlaying value) movieNowPlaying,
@@ -69,6 +72,7 @@ mixin _$Param {
     required TResult Function(MovieWithQuery value) movieWithQuery,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MovieNowPlaying value)? movieNowPlaying,
@@ -82,6 +86,7 @@ mixin _$Param {
     TResult? Function(MovieWithQuery value)? movieWithQuery,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MovieNowPlaying value)? movieNowPlaying,
@@ -111,6 +116,7 @@ class _$ParamCopyWithImpl<$Res, $Val extends Param>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 }
@@ -120,6 +126,7 @@ abstract class _$$MovieNowPlayingCopyWith<$Res> {
   factory _$$MovieNowPlayingCopyWith(
           _$MovieNowPlaying value, $Res Function(_$MovieNowPlaying) then) =
       __$$MovieNowPlayingCopyWithImpl<$Res>;
+
   @useResult
   $Res call({int page});
 }
@@ -286,6 +293,7 @@ abstract class MovieNowPlaying implements Param {
   const factory MovieNowPlaying({final int page}) = _$MovieNowPlaying;
 
   int get page;
+
   @JsonKey(ignore: true)
   _$$MovieNowPlayingCopyWith<_$MovieNowPlaying> get copyWith =>
       throw _privateConstructorUsedError;
@@ -296,6 +304,7 @@ abstract class _$$MoviePopularCopyWith<$Res> {
   factory _$$MoviePopularCopyWith(
           _$MoviePopular value, $Res Function(_$MoviePopular) then) =
       __$$MoviePopularCopyWithImpl<$Res>;
+
   @useResult
   $Res call({int page});
 }
@@ -462,6 +471,7 @@ abstract class MoviePopular implements Param {
   const factory MoviePopular({final int page}) = _$MoviePopular;
 
   int get page;
+
   @JsonKey(ignore: true)
   _$$MoviePopularCopyWith<_$MoviePopular> get copyWith =>
       throw _privateConstructorUsedError;
@@ -472,6 +482,7 @@ abstract class _$$MovieTopRatedCopyWith<$Res> {
   factory _$$MovieTopRatedCopyWith(
           _$MovieTopRated value, $Res Function(_$MovieTopRated) then) =
       __$$MovieTopRatedCopyWithImpl<$Res>;
+
   @useResult
   $Res call({int page});
 }
@@ -638,6 +649,7 @@ abstract class MovieTopRated implements Param {
   const factory MovieTopRated({final int page}) = _$MovieTopRated;
 
   int get page;
+
   @JsonKey(ignore: true)
   _$$MovieTopRatedCopyWith<_$MovieTopRated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -789,6 +801,7 @@ abstract class _$$MovieDetailParamCopyWith<$Res> {
   factory _$$MovieDetailParamCopyWith(
           _$MovieDetailParam value, $Res Function(_$MovieDetailParam) then) =
       __$$MovieDetailParamCopyWithImpl<$Res>;
+
   @useResult
   $Res call({int movieId});
 }
@@ -954,6 +967,7 @@ abstract class MovieDetailParam implements Param {
   const factory MovieDetailParam(final int movieId) = _$MovieDetailParam;
 
   int get movieId;
+
   @JsonKey(ignore: true)
   _$$MovieDetailParamCopyWith<_$MovieDetailParam> get copyWith =>
       throw _privateConstructorUsedError;
@@ -964,6 +978,7 @@ abstract class _$$MovieVideoCopyWith<$Res> {
   factory _$$MovieVideoCopyWith(
           _$MovieVideo value, $Res Function(_$MovieVideo) then) =
       __$$MovieVideoCopyWithImpl<$Res>;
+
   @useResult
   $Res call({int movieId});
 }
@@ -1129,6 +1144,7 @@ abstract class MovieVideo implements Param {
   const factory MovieVideo(final int movieId) = _$MovieVideo;
 
   int get movieId;
+
   @JsonKey(ignore: true)
   _$$MovieVideoCopyWith<_$MovieVideo> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1139,6 +1155,7 @@ abstract class _$$MovieCreditsCopyWith<$Res> {
   factory _$$MovieCreditsCopyWith(
           _$MovieCredits value, $Res Function(_$MovieCredits) then) =
       __$$MovieCreditsCopyWithImpl<$Res>;
+
   @useResult
   $Res call({int movieId});
 }
@@ -1304,6 +1321,7 @@ abstract class MovieCredits implements Param {
   const factory MovieCredits(final int movieId) = _$MovieCredits;
 
   int get movieId;
+
   @JsonKey(ignore: true)
   _$$MovieCreditsCopyWith<_$MovieCredits> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1314,6 +1332,7 @@ abstract class _$$MovieWithQueryCopyWith<$Res> {
   factory _$$MovieWithQueryCopyWith(
           _$MovieWithQuery value, $Res Function(_$MovieWithQuery) then) =
       __$$MovieWithQueryCopyWithImpl<$Res>;
+
   @useResult
   $Res call({String query, int page});
 }
@@ -1489,7 +1508,9 @@ abstract class MovieWithQuery implements Param {
       _$MovieWithQuery;
 
   String get query;
+
   int get page;
+
   @JsonKey(ignore: true)
   _$$MovieWithQueryCopyWith<_$MovieWithQuery> get copyWith =>
       throw _privateConstructorUsedError;

@@ -33,7 +33,6 @@ class _MovieSearchScreenState extends State<MovieSearchScreen> {
   Widget build(BuildContext context) {
     final viewModel = context.watch<MovieSearchScreenViewModel>();
     final searchState = viewModel.searchState;
-    final detailState = viewModel.detailState;
 
     return GestureDetector(
       onTap: () {
